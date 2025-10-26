@@ -116,23 +116,51 @@ function ServiceCard({ service, isOpen, onToggle, hoverImageRef, globalHideTimeo
       img.src = `/images/services/${service.id}.jpg`
       
       // Position image using same logic as handleMouseMove
-      const imgWidth = 320
-      const imgHeight = 220
       const viewportWidth = window.innerWidth
       const viewportHeight = window.innerHeight
-      const offset = 20
       
-      // Start with cursor position + offset to the right
+      // Responsive sizing
+      let imgWidth, imgHeight
+      if (viewportWidth >= 1367) {
+        imgWidth = 320
+        imgHeight = 220
+      } else if (viewportWidth >= 1024) {
+        imgWidth = 280
+        imgHeight = 190
+      } else {
+        imgWidth = 240
+        imgHeight = 160
+      }
+      
+      const offset = 30
+      
+      // Calculate initial position (prefer right side of cursor)
       let left = e.clientX + offset
       let top = e.clientY - (imgHeight / 2)
       
-      // Adjust if image would go off screen to the right
-      if (left + imgWidth > viewportWidth) {
+      // Check if image fits on the right side
+      if (left + imgWidth > viewportWidth - 20) {
+        // Try left side of cursor
         left = e.clientX - imgWidth - offset
+        
+        // If still doesn't fit on left, center it horizontally
+        if (left < 20) {
+          left = Math.max(20, (viewportWidth - imgWidth) / 2)
+        }
       }
       
-      // Adjust if image would go off screen vertically
-      if (top + imgHeight > viewportHeight) {
+      // Ensure image doesn't go off screen to the left
+      if (left < 20) {
+        left = 20
+      }
+      
+      // Ensure image doesn't go off screen to the right
+      if (left + imgWidth > viewportWidth - 20) {
+        left = viewportWidth - imgWidth - 20
+      }
+      
+      // Adjust vertical position
+      if (top + imgHeight > viewportHeight - 20) {
         top = viewportHeight - imgHeight - 20
       }
       if (top < 20) {
@@ -159,23 +187,51 @@ function ServiceCard({ service, isOpen, onToggle, hoverImageRef, globalHideTimeo
       const img = hoverImageRef.current
       
       // Position image with bounds checking using mouse cursor position
-      const imgWidth = 320
-      const imgHeight = 220
       const viewportWidth = window.innerWidth
       const viewportHeight = window.innerHeight
-      const offset = 20
       
-      // Start with cursor position + offset to the right
+      // Responsive sizing
+      let imgWidth, imgHeight
+      if (viewportWidth >= 1367) {
+        imgWidth = 320
+        imgHeight = 220
+      } else if (viewportWidth >= 1024) {
+        imgWidth = 280
+        imgHeight = 190
+      } else {
+        imgWidth = 240
+        imgHeight = 160
+      }
+      
+      const offset = 30
+      
+      // Calculate initial position (prefer right side of cursor)
       let left = e.clientX + offset
       let top = e.clientY - (imgHeight / 2)
       
-      // Adjust if image would go off screen to the right
-      if (left + imgWidth > viewportWidth) {
+      // Check if image fits on the right side
+      if (left + imgWidth > viewportWidth - 20) {
+        // Try left side of cursor
         left = e.clientX - imgWidth - offset
+        
+        // If still doesn't fit on left, center it horizontally
+        if (left < 20) {
+          left = Math.max(20, (viewportWidth - imgWidth) / 2)
+        }
       }
       
-      // Adjust if image would go off screen vertically
-      if (top + imgHeight > viewportHeight) {
+      // Ensure image doesn't go off screen to the left
+      if (left < 20) {
+        left = 20
+      }
+      
+      // Ensure image doesn't go off screen to the right
+      if (left + imgWidth > viewportWidth - 20) {
+        left = viewportWidth - imgWidth - 20
+      }
+      
+      // Adjust vertical position
+      if (top + imgHeight > viewportHeight - 20) {
         top = viewportHeight - imgHeight - 20
       }
       if (top < 20) {
@@ -241,38 +297,32 @@ function ServicesSection() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.set([headerRef.current, subRef.current], { opacity: 0, y: 24 })
-      gsap.set(listRef.current?.children, { opacity: 0, y: 32 })
-      gsap.set(statsRef.current, { opacity: 0, y: 24 })
+      gsap.set([headerRef.current, subRef.current], { opacity: 1, y: 0 })
+      gsap.set(listRef.current?.children, { opacity: 1, y: 0 })
+      gsap.set(statsRef.current, { opacity: 1, y: 0 })
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: rootRef.current,
-          start: 'top 80%',
-          toggleActions: 'play none none reverse',
-        },
+      // Counter animation for stats
+      const nums = statsRef.current?.querySelectorAll('.num') || []
+      nums.forEach((el) => {
+        const target = Number(el.getAttribute('data-target') || '0')
+        const prefix = el.getAttribute('data-prefix') || ''
+        const suffix = el.getAttribute('data-suffix') || ''
+        const obj = { val: 0 }
+        gsap.to(obj, {
+          val: target,
+          duration: Math.min(2.2, 0.02 * target + 0.8),
+          ease: 'power1.out',
+          scrollTrigger: {
+            trigger: rootRef.current,
+            start: 'top 60%',
+            toggleActions: 'play none none reverse'
+          },
+          onUpdate: () => {
+            const v = Math.round(obj.val)
+            el.textContent = `${prefix}${v}${suffix}`
+          },
+        })
       })
-      tl.to(headerRef.current, { opacity: 1, y: 0, duration: 0.6 })
-        .to(subRef.current, { opacity: 1, y: 0, duration: 0.5 }, '-=0.2')
-        .to(listRef.current?.children, { opacity: 1, y: 0, duration: 0.5, stagger: 0.12 }, '-=0.1')
-        .to(statsRef.current, { opacity: 1, y: 0, duration: 0.6, onComplete: () => {
-          const nums = statsRef.current?.querySelectorAll('.num') || []
-          nums.forEach((el) => {
-            const target = Number(el.getAttribute('data-target') || '0')
-            const prefix = el.getAttribute('data-prefix') || ''
-            const suffix = el.getAttribute('data-suffix') || ''
-            const obj = { val: 0 }
-            gsap.to(obj, {
-              val: target,
-              duration: Math.min(2.2, 0.02 * target + 0.8),
-              ease: 'power1.out',
-              onUpdate: () => {
-                const v = Math.round(obj.val)
-                el.textContent = `${prefix}${v}${suffix}`
-              },
-            })
-          })
-        } }, '>-0.1')
     }, rootRef)
 
     // Add mouse leave listener to the entire services section

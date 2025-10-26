@@ -2,8 +2,16 @@
   background:#0b0b0b; 
   color:#efeeea; 
   padding: 56px 16px; 
-  overflow-x: hidden;
+  overflow: hidden;
   position: relative;
+  z-index: 20;
+  /* Hide scrollbar */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.services::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 .svc-wrap { max-width: 760px; margin: 0 auto; }
 .svc-header { font-weight:800; font-size: 28px; letter-spacing: .08em; text-transform: uppercase; color:#efeeea; }
@@ -132,11 +140,28 @@
   transform: scale(0.8) translateY(20px);
   filter: brightness(1.1) contrast(1.05);
   display: none;
+  /* Ensure image stays within viewport */
+  max-width: calc(100vw - 40px);
+  max-height: calc(100vh - 40px);
 }
 
 @media (max-width: 1023px) {
   .svc-hover-image {
     display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1366px) {
+  .svc-hover-image {
+    width: 280px;
+    height: 190px;
+  }
+}
+
+@media (min-width: 1367px) {
+  .svc-hover-image {
+    width: 320px;
+    height: 220px;
   }
 }
 

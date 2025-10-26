@@ -5,6 +5,7 @@
   background: #0b0b0b; /* سيُستبدل مؤقتًا بالشفاف عبر GSAP في البداية */
   color: #ffffff;
   overflow: hidden;
+  z-index: 20;
 }
 
 .about-stage {

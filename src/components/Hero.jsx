@@ -16,7 +16,7 @@ function Hero() {
       gsap.set([sigRef.current, subtitleRef.current], { opacity: 0 })
       if (wordsRef.current) {
         const children = Array.from(wordsRef.current.querySelectorAll('[data-word]'))
-        gsap.set(children, { opacity: 0, x: 0, skewX: 0 })
+        gsap.set(children, { opacity: 0, y: 0, skewY: 0 })
       }
 
       // lock scroll
@@ -32,21 +32,21 @@ function Hero() {
         .to(sigRef.current, { opacity: 1, y: 0, duration: 0.6, delay: 0.5 }, 'sigReveal')
         // glitch words sequentially: each ~0.66s, with CSS pseudo-layers for RGB split
         .to(words[0], { opacity: 1, duration: 0.08, onStart: () => words[0].classList.add('glitch') }, 'glitch')
-        .to(words[0], { x: 6, skewX: 6, duration: 0.1 })
-        .to(words[0], { x: -6, skewX: -6, duration: 0.1 })
-        .to(words[0], { x: 0, skewX: 0, duration: 0.12, onComplete: () => words[0].classList.remove('glitch') })
+        .to(words[0], { y: 6, skewY: 6, duration: 0.1 })
+        .to(words[0], { y: -6, skewY: -6, duration: 0.1 })
+        .to(words[0], { y: 0, skewY: 0, duration: 0.12, onComplete: () => words[0].classList.remove('glitch') })
         .to(words[0], { opacity: 0, duration: 0.08 })
 
         .to(words[1], { opacity: 1, duration: 0.08, onStart: () => words[1].classList.add('glitch') })
-        .to(words[1], { x: -7, skewX: -7, duration: 0.1 })
-        .to(words[1], { x: 7, skewX: 7, duration: 0.1 })
-        .to(words[1], { x: 0, skewX: 0, duration: 0.12, onComplete: () => words[1].classList.remove('glitch') })
+        .to(words[1], { y: -7, skewY: -7, duration: 0.1 })
+        .to(words[1], { y: 7, skewY: 7, duration: 0.1 })
+        .to(words[1], { y: 0, skewY: 0, duration: 0.12, onComplete: () => words[1].classList.remove('glitch') })
         .to(words[1], { opacity: 0, duration: 0.08 })
 
         .to(words[2], { opacity: 1, duration: 0.08, onStart: () => words[2].classList.add('glitch') })
-        .to(words[2], { x: 8, skewX: 8, duration: 0.1 })
-        .to(words[2], { x: -8, skewX: -8, duration: 0.1 })
-        .to(words[2], { x: 0, skewX: 0, duration: 0.12, onComplete: () => words[2].classList.remove('glitch') })
+        .to(words[2], { y: 8, skewY: 8, duration: 0.1 })
+        .to(words[2], { y: -8, skewY: -8, duration: 0.1 })
+        .to(words[2], { y: 0, skewY: 0, duration: 0.12, onComplete: () => words[2].classList.remove('glitch') })
         .to(words[2], { opacity: 0, duration: 0.08 })
         // swap signature with blur while typing subtitle starts
         .to(sigRef.current, { filter: 'blur(10px)', opacity: 0.0, duration: 0.35 }, 'swap')

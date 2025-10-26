@@ -38,9 +38,9 @@ function About() {
       const titleWords = Array.from(titleEl?.querySelectorAll('.word') || [])
 
       gsap.set([stage, portrait, titleWords, bodyRef.current], { willChange: 'transform' })
-      gsap.set(rootRef.current, { backgroundColor: 'transparent' })
-      gsap.set([portrait], { xPercent: 80, opacity: 0 })
-      gsap.set(stage, { xPercent: 100 })
+      gsap.set(rootRef.current, { backgroundColor: '#0b0b0b' })
+      gsap.set([portrait], { xPercent: 0, opacity: 1 })
+      gsap.set(stage, { xPercent: 0 })
       gsap.set(titleWords, { opacity: 0, y: 12 })
       const bodies = Array.from(rootRef.current?.querySelectorAll('.about-body') || [])
       gsap.set(bodies, { opacity: 0 })
@@ -56,23 +56,18 @@ function About() {
         },
       })
 
-      // Phase A: slide in About and push hero left
-      tl.to(stage, { xPercent: 0, duration: 0.33 }, 'enter')
-        .to(portrait, { xPercent: 0, opacity: 1, duration: 0.4 }, 'enter')
-        .to([heroVideo, heroOverlay], { x: '-100vw', opacity: 0, duration: 0.5, ease: 'power2.inOut' }, 'enter')
-        .to(rootRef.current, { backgroundColor: '#0b0b0b', duration: 0.1 }, 'enter+=0.15')
-        .set([heroVideo, heroOverlay], { display: 'none' }, 'enter+=0.5')
+      // Phase A: portrait is already visible
+      tl.addLabel('portrait')
 
       // Phase B: headline words reveal
       tl.to(titleWords, { opacity: 1, y: 0, stagger: 0.08, duration: 0.2 }, 'words')
       const perf = titleEl?.querySelector('.word.performance')
       if (perf) { tl.to(perf, { '--hlw': 1, duration: 0.4, ease: 'power1.out' }, 'words+=0.2') }
 
-      // Phase C: stick header (بدون رفع الصورة)
+      // Phase C: stick header
       tl.addLabel('stick')
 
       // Phase D: body reveal (typing-like)
-      // Phase D: body paragraphs sequentially
       bodies.forEach((el, idx) => {
         const content = el.dataset.full || ''
         tl.to(el, { opacity: 1, duration: 0.1 }, idx === 0 ? 'body' : '>' )
