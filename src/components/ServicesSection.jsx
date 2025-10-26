@@ -115,6 +115,33 @@ function ServiceCard({ service, isOpen, onToggle, hoverImageRef, globalHideTimeo
       img.style.display = 'block'
       img.src = `/images/services/${service.id}.jpg`
       
+      // Position image using same logic as handleMouseMove
+      const imgWidth = 320
+      const imgHeight = 220
+      const viewportWidth = window.innerWidth
+      const viewportHeight = window.innerHeight
+      const offset = 20
+      
+      // Start with cursor position + offset to the right
+      let left = e.clientX + offset
+      let top = e.clientY - (imgHeight / 2)
+      
+      // Adjust if image would go off screen to the right
+      if (left + imgWidth > viewportWidth) {
+        left = e.clientX - imgWidth - offset
+      }
+      
+      // Adjust if image would go off screen vertically
+      if (top + imgHeight > viewportHeight) {
+        top = viewportHeight - imgHeight - 20
+      }
+      if (top < 20) {
+        top = 20
+      }
+      
+      img.style.left = `${left}px`
+      img.style.top = `${top}px`
+      
       // Beautiful entrance animation
       img.style.opacity = '0'
       img.style.transform = 'scale(0.8) translateY(20px)'
@@ -130,21 +157,24 @@ function ServiceCard({ service, isOpen, onToggle, hoverImageRef, globalHideTimeo
   const handleMouseMove = (e) => {
     if (hoverImageRef.current) {
       const img = hoverImageRef.current
-      const rect = e.currentTarget.getBoundingClientRect()
       
-      // Position image with bounds checking
+      // Position image with bounds checking using mouse cursor position
       const imgWidth = 320
       const imgHeight = 220
       const viewportWidth = window.innerWidth
       const viewportHeight = window.innerHeight
+      const offset = 20
       
-      let left = rect.right + 20
-      let top = rect.top
+      // Start with cursor position + offset to the right
+      let left = e.clientX + offset
+      let top = e.clientY - (imgHeight / 2)
       
-      // Adjust if image would go off screen
+      // Adjust if image would go off screen to the right
       if (left + imgWidth > viewportWidth) {
-        left = rect.left - imgWidth - 20
+        left = e.clientX - imgWidth - offset
       }
+      
+      // Adjust if image would go off screen vertically
       if (top + imgHeight > viewportHeight) {
         top = viewportHeight - imgHeight - 20
       }
