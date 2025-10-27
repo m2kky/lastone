@@ -179,6 +179,10 @@ function About() {
               className="about-body" 
               data-full="He brings a unique mix of creative strategy, technical precision, and human-centered training—bridging the gap between marketing, technology, and people."
             />
+            <p 
+              className="about-body" 
+              data-full="Beyond building systems, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies."
+            />
           </div>
           
           <div className="about-cta">
