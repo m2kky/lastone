@@ -55,6 +55,16 @@ const services = [
       'Acting as the operational bridge across teams and departments.',
     ],
   },
+  {
+    id: 'training-workshops',
+    title: 'Training & Workshops',
+    points: [
+      'Conducting hands-on workshops on marketing automation and AI integration.',
+      'Teaching practical frameworks for scaling performance and growth.',
+      'Delivering corporate training sessions for teams and departments.',
+      'Creating actionable strategies from complex concepts and theories.',
+    ],
+  },
 ]
 
 function Icon({ type }) {
@@ -95,6 +105,14 @@ function Icon({ type }) {
           <circle cx="5" cy="19" r="1"/>
           <circle cx="12" cy="19" r="1"/>
           <circle cx="19" cy="19" r="1"/>
+        </svg>
+      )
+    case 'training-workshops':
+      return (
+        <svg {...common}>
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+          <circle cx="12" cy="9" r="1"/>
         </svg>
       )
     default:
