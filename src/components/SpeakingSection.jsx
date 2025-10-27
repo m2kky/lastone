@@ -55,7 +55,7 @@ export default function SpeakingSection() {
     <section id="speaking" ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">
       {/* Background dimmed image */}
       <div className="speaking-bg" aria-hidden="true">
-        <img src="/images/mekky_about.png" alt="Audience background" className="bg-img" />
+        <img src="/images/speaking/background.jpg" alt="Audience background" className="bg-img" />
       </div>
 
       <AnimatedSemicircle position="top-right" />
@@ -71,12 +71,12 @@ export default function SpeakingSection() {
               aria-label="Play highlight video"
               // onClick={() => openVideoModal('/videos/highlight.mp4')}
             >
-              <img src="/images/mekky_about.png" alt="Muhammed Mekky speaking" className="speaker-img" />
+              <img src="/images/speaking/speaker.jpg" alt="Muhammed Mekky speaking" className="speaker-img" />
             </button>
           </motion.div>
 
           <motion.div style={{ y: audienceY, scale: audienceScale }} className="audience-card" aria-hidden="true">
-            <img src="/images/mekky_about.png" alt="Audience" className="audience-img" />
+            <img src="/images/speaking/audience.jpg" alt="Audience" className="audience-img" />
           </motion.div>
         </div>
 
