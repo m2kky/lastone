@@ -4,16 +4,6 @@ import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "./speaking.css";
 
-/**
- * SpeakingSection.jsx
- * - Uses framer-motion for scroll-linked micro animations.
- * - Import speaking.css for styles.
- *
- * Notes:
- * - Replace image src paths with your real assets.
- * - Implement openVideoModal if you want clicking the big image to open a modal video.
- */
-
 const AnimatedSemicircle = ({ position }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -31,7 +21,7 @@ const AnimatedSemicircle = ({ position }) => {
       aria-hidden="true"
     >
       <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" preserveAspectRatio="none" role="img" aria-hidden="true">
-        <motion.path d={d} stroke="#EB5E28" strokeWidth="2" style={{ pathLength }} strokeLinecap="round" />
+        <motion.path d={d} stroke="#E31B23" strokeWidth="2" style={{ pathLength }} strokeLinecap="round" />
       </svg>
     </div>
   );
@@ -44,19 +34,15 @@ export default function SpeakingSection() {
     offset: ["start end", "end center"],
   });
 
-  // motion transforms
-  const speakerY = useTransform(scrollYProgress, [0.1, 0.9], [20, -40]);
-  const speakerScale = useTransform(scrollYProgress, [0.1, 0.9], [0.98, 1.02]);
-
-  const audienceY = useTransform(scrollYProgress, [0.1, 0.9], [-10, 30]);
-  const audienceScale = useTransform(scrollYProgress, [0.1, 0.9], [1, 0.96]);
-
-  // Second speaker image - moves opposite to audience
-  const speaker2Y = useTransform(scrollYProgress, [0.1, 0.9], [30, -10]);
-  const speaker2Scale = useTransform(scrollYProgress, [0.1, 0.9], [0.96, 1]);
+  // Enhanced animations matching the original
+  const doctorImageY = useTransform(scrollYProgress, [0.1, 0.9], [20, -60]);
+  const doctorImageScale = useTransform(scrollYProgress, [0.1, 0.9], [0.95, 1.1]);
+  
+  const audienceImageY = useTransform(scrollYProgress, [0.1, 0.9], [-20, 40]);
+  const audienceImageScale = useTransform(scrollYProgress, [0.1, 0.9], [1, 0.9]);
 
   return (
-    <section id="speaking" ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">
+    <section ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">
       {/* Background dimmed image */}
       <div className="speaking-bg" aria-hidden="true">
         <img src="/images/speaking/background.jpg" alt="Audience background" className="bg-img" />
@@ -68,24 +54,12 @@ export default function SpeakingSection() {
       <div className="speaking-container">
         {/* Left: images */}
         <div className="speaking-left">
-          <motion.div style={{ y: speakerY, scale: speakerScale }} className="speaker-card">
-            <button
-              className="speaker-btn"
-              type="button"
-              aria-label="Play highlight video"
-              // onClick={() => openVideoModal('/videos/highlight.mp4')}
-            >
-              <img src="/images/speaking/speaker.jpg" alt="Muhammed Mekky speaking" className="speaker-img" />
-            </button>
+          <motion.div style={{ y: doctorImageY, scale: doctorImageScale }} className="speaker-card">
+            <img src="/images/speaking/speaker.jpg" alt="Dr. Mahmoud Bravo Speaking" className="speaker-img" />
           </motion.div>
 
-          <motion.div style={{ y: audienceY, scale: audienceScale }} className="audience-card" aria-hidden="true">
+          <motion.div style={{ y: audienceImageY, scale: audienceImageScale }} className="audience-card" aria-hidden="true">
             <img src="/images/speaking/audience.jpg" alt="Audience" className="audience-img" />
-          </motion.div>
-
-          {/* Second speaker image - moves opposite to audience */}
-          <motion.div style={{ y: speaker2Y, scale: speaker2Scale }} className="speaker2-card" aria-hidden="true">
-            <img src="/images/speaking/speaker2.jpg" alt="Speaker 2" className="speaker2-img" />
           </motion.div>
         </div>
 
@@ -99,39 +73,26 @@ export default function SpeakingSection() {
 
           <div className="speaking-copy">
             <p>
-              Muhammed Mekky is one of the most influential healthcare marketing leaders in the MENA region, with over 15 years of experience and 50+ keynote appearances. He inspires and empowers audiences, delivering insights on leadership, innovation, and transformation.
+              Dr. Mahmoud Bravo, one of the MENA region's most influential healthcare marketing leaders, is ready to inspire and empower your audience. With 15+ years of experience across global pharma giants and 50+ keynote appearances, Dr. Bravo brings unmatched insights on leadership, innovation, and transformation.
             </p>
 
             <p>
-              His sessions blend strategy with storytelling — turning complex ideas into practical, actionable strategies that audiences can implement immediately.
+              Whether addressing healthcare professionals, corporate teams, or university students, his talks blend strategy with storytelling – making complex ideas simple, practical, and actionable.
             </p>
           </div>
 
-          <div className="speaking-stats" aria-hidden="false">
-            <div className="stat">
-              <div className="stat-number">15+</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">50+</div>
-              <div className="stat-label">Keynote Appearances</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">5,000+</div>
-              <div className="stat-label">Professionals Inspired</div>
-            </div>
-          </div>
-
           <div className="speaking-ctas">
-            <a href="/speaking-enquiries" aria-label="Speaking enquiries" className="btn btn-outline">
-              SPEAKING ENQUIRIES
-            </a>
+            <motion.a 
+              href="/enquiries" 
+              aria-label="Speaking enquiries" 
+              className="btn btn-outline"
+              whileHover={{ backgroundColor: "#E31B23", scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Speaking Enquiries
+            </motion.a>
           </div>
-
-          <blockquote className="speaking-quote" aria-label="Testimonial">
-            "Muhammed's session restructured our team's approach to automation — from concept to delivery. Practical, clear and actionable."
-            <cite className="quote-by">— Lina A., Head of Growth</cite>
-          </blockquote>
         </div>
       </div>
     </section>

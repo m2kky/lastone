@@ -1,15 +1,10 @@
-/* speaking.css - styles for SpeakingSection.jsx
-   Keep this file next to the component and import it in the JSX.
-   Uses simple, responsive layout and colors matching your "flame" palette.
-*/
+/* speaking.css - styles for SpeakingSection.jsx matching original design */
 
 /* Variables */
 :root {
-  --bg: #0b0b0b;
-  --panel: #0f0f0f;
-  --flame: #EB5E28;
-  --muted: rgba(255,255,255,0.72);
-  --muted-2: rgba(255,255,255,0.6);
+  --bg: #000000;
+  --flame: #E31B23;
+  --muted: rgba(255,255,255,0.8);
 }
 
 /* Section */
@@ -19,7 +14,7 @@
   color: #fff;
   padding: 6rem 0;
   overflow: hidden;
-  min-height: 680px;
+  min-height: 100vh;
 }
 
 /* Background image wrapper */
@@ -33,7 +28,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.28) contrast(.95);
+  opacity: 0.1;
 }
 
 /* Decorative semicircles */
@@ -41,9 +36,12 @@
   position: absolute;
   width: 150px;
   height: 150px;
-  z-index: 5;
-  opacity: 0.36;
+  z-index: 10;
+  opacity: 0.5;
   pointer-events: none;
+}
+@media (min-width: 768px) {
+  .semicircle { width: 200px; height: 200px; }
 }
 .sr-topright { top: 0; right: 0; }
 .sr-bottomleft { bottom: 0; left: 0; }
@@ -51,109 +49,159 @@
 /* Container */
 .speaking-container {
   position: relative;
-  z-index: 10;
-  max-width: 1180px;
+  z-index: 20;
+  max-width: 1200px;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2.25rem;
-  padding: 0 1.25rem;
+  gap: 2rem;
+  padding: 0 1rem;
 }
 @media (min-width: 768px) {
-  .speaking-container { grid-template-columns: 1fr 1fr; align-items: center; }
+  .speaking-container { 
+    grid-template-columns: 1fr 1fr; 
+    align-items: center; 
+    gap: 2rem;
+  }
 }
 
 /* Left column (images) */
-.speaking-left { position: relative; height: 320px; max-width: 820px; margin: 0 auto; }
-@media (min-width: 640px) { .speaking-left { height: 420px; } }
-@media (min-width: 992px) { .speaking-left { height: 488px; } }
+.speaking-left { 
+  position: relative; 
+  height: 300px; 
+  max-width: 733px; 
+  margin: 0 auto; 
+}
+@media (min-width: 640px) { 
+  .speaking-left { height: 400px; } 
+}
+@media (min-width: 768px) { 
+  .speaking-left { height: 488px; } 
+}
 
 .speaker-card {
   position: absolute;
   inset: 0;
-  border-radius: 18px;
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
 }
 
-.speaker-btn { width: 100%; height: 100%; display: block; background: transparent; border: none; padding: 0; cursor: pointer; }
-.speaker-img { width: 100%; height: 100%; object-fit: cover; }
+.speaker-img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
 
-/* Headshot image - top right, overlapping main speaker */
+/* Audience image - top right, overlapping main speaker */
 .audience-card {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 120px;
-  height: 80px;
-  border-radius: 12px;
+  top: 0;
+  right: 0;
+  width: 180px;
+  height: 118px;
+  border-radius: 1rem;
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  border: 2px solid rgba(0,0,0,0.6);
+  border: 2px solid #000;
   z-index: 2;
 }
-@media (min-width: 640px) { .audience-card { width: 160px; height: 110px; } }
-@media (min-width: 992px) { .audience-card { width: 200px; height: 140px; } }
-.audience-img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Audience image - below main speaker, larger than headshot */
-.speaker2-card {
-  position: absolute;
-  bottom: 1rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 180px;
-  height: 120px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  border: 2px solid rgba(0,0,0,0.6);
-  z-index: 1;
+@media (min-width: 640px) { 
+  .audience-card { 
+    width: 220px; 
+    height: 148px; 
+    border: 4px solid #000;
+  } 
 }
-@media (min-width: 640px) { .speaker2-card { width: 240px; height: 160px; } }
-@media (min-width: 992px) { .speaker2-card { width: 300px; height: 200px; } }
-.speaker2-img { width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 768px) { 
+  .audience-card { 
+    width: 290px; 
+    height: 188px; 
+  } 
+}
+.audience-img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
 
 /* Right column */
-.speaking-right { max-width: 520px; margin: 0 auto; }
-.speaking-title { font-family: "Bebas Neue", "Impact", sans-serif; font-weight: 700; letter-spacing: 2px; margin: 0; font-size: 2.25rem; line-height: 1; }
-@media (min-width: 768px) { .speaking-title { font-size: 3rem; } }
-@media (min-width: 992px) { .speaking-title { font-size: 3.5rem; } }
+.speaking-right { 
+  max-width: 400px; 
+  margin: 0 auto; 
+}
+@media (min-width: 768px) {
+  .speaking-right { margin: 0; }
+}
 
-.speaking-copy { margin-top: 1rem; color: var(--muted); font-size: 0.98rem; line-height: 1.6; }
+.speaking-title { 
+  font-family: "Bebas Neue", "Impact", sans-serif; 
+  font-weight: 700; 
+  letter-spacing: 0.2em; 
+  margin: 0; 
+  font-size: 2.5rem; 
+  line-height: 1; 
+}
+@media (min-width: 768px) { 
+  .speaking-title { font-size: 3rem; } 
+}
+@media (min-width: 992px) { 
+  .speaking-title { font-size: 3.125rem; } 
+}
 
-/* Stats */
-.speaking-stats { margin-top: 1.25rem; display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; }
-.stat { display: flex; flex-direction: column; }
-.stat-number { color: var(--flame); font-weight: 700; font-size: 1.4rem; }
-.stat-label { color: var(--muted-2); font-size: 0.75rem; margin-top: .15rem; }
+.speaking-copy { 
+  margin-top: 1.5rem; 
+  color: var(--muted); 
+  font-size: 1rem; 
+  line-height: 1.6; 
+}
 
 /* CTAs */
-.speaking-ctas { margin-top: 1.5rem; display:flex; gap: 1rem; align-items:center; flex-wrap:wrap; }
-.btn { display:inline-block; text-decoration:none; cursor:pointer; border-radius: 999px; font-weight: 700; letter-spacing: .6px; }
-.btn-primary {
-  background: var(--flame);
-  color: #000;
-  padding: .6rem 1.25rem;
-  box-shadow: 0 8px 24px rgba(235,94,40,0.18);
+.speaking-ctas { 
+  margin-top: 2rem; 
 }
+
+.btn { 
+  display: inline-block; 
+  text-decoration: none; 
+  cursor: pointer; 
+  border-radius: 999px; 
+  font-weight: 700; 
+  letter-spacing: 0.1em; 
+  font-family: "Bebas Neue", "Impact", sans-serif;
+  transition: all 0.3s ease;
+}
+
 .btn-outline {
   border: 2px solid var(--flame);
   color: #fff;
-  padding: .48rem 1rem;
+  padding: 0.75rem 2rem;
   background: transparent;
+  font-size: 1rem;
 }
 
-/* Testimonial */
-.speaking-quote { margin-top: 1.5rem; color: rgba(255,255,255,0.74); font-style: italic; border-left: 3px solid rgba(255,255,255,0.06); padding-left: 1rem; }
-.quote-by { display:block; margin-top: .5rem; color: rgba(255,255,255,0.6); font-style: normal; font-size: .86rem; }
+.btn-outline:hover {
+  background: var(--flame);
+  color: #000;
+}
 
 /* Responsive tweaks */
 @media (max-width: 767px) {
-  .speaking-section { padding: 3.5rem 0; }
-  .speaking-container { gap: 1.25rem; }
-  .speaking-left { height: 260px; }
-  .speaking-title { font-size: 2rem; }
-  .speaking-stats { gap: .9rem; }
-  .audience-card { top: .5rem; right: .5rem; width: 120px; height: 84px; }
+  .speaking-section { 
+    padding: 3.5rem 0; 
+    min-height: auto;
+  }
+  .speaking-container { 
+    gap: 1.5rem; 
+  }
+  .speaking-left { 
+    height: 300px; 
+  }
+  .speaking-title { 
+    font-size: 2rem; 
+  }
+  .audience-card { 
+    width: 150px; 
+    height: 100px; 
+  }
 }
