@@ -150,6 +150,12 @@ function About() {
 
   return (
     <section ref={rootRef} className="about">
+      {/* Geometric Background Shapes - Desktop Only */}
+      <div className="about-shape about-shape-1"></div>
+      <div className="about-shape about-shape-2"></div>
+      <div className="about-shape about-shape-3"></div>
+      <div className="about-shape about-shape-4"></div>
+      
       <div className="about-stage">
         <div className="about-graphic">
           <img 
