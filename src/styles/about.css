@@ -20,6 +20,7 @@
   align-items: center;
   justify-content: center;
   padding: 60px 24px;
+  text-align: center;
 }
 
 .about-graphic {
@@ -32,7 +33,7 @@
 
 .about-portrait {
   position: relative;
-  width: clamp(200px, 50vw, 400px);
+  width: clamp(280px, 70vw, 400px);
   height: auto;
   border-radius: 12px;
   z-index: 10;
@@ -46,7 +47,7 @@
   letter-spacing: 0.05em;
   word-spacing: 0.1em;
   line-height: 1.1;
-  font-size: clamp(24px, 6vw, 48px);
+  font-size: clamp(24px, 6vw, 36px);
 }
 
 .about-title .word {
@@ -224,12 +225,12 @@
   }
   
   .about-portrait {
-    width: clamp(300px, 40vw, 450px);
+    width: clamp(320px, 60vw, 450px);
     margin-bottom: 50px;
   }
   
   .about-title {
-    font-size: clamp(32px, 5vw, 42px);
+    font-size: clamp(28px, 4vw, 36px);
     margin-bottom: 20px;
   }
   
@@ -272,9 +273,10 @@
   
   .about-title {
     text-align: left;
-    font-size: clamp(36px, 4vw, 48px);
+    font-size: clamp(28px, 3vw, 32px);
     margin-bottom: 16px;
     max-width: 100%;
+    line-height: 1.2;
   }
   
   .about-body-group {
@@ -307,7 +309,7 @@
   }
   
   .about-title {
-    font-size: clamp(42px, 3.5vw, 56px);
+    font-size: clamp(32px, 2.5vw, 40px);
   }
   
   .about-body {
