@@ -9,7 +9,6 @@ import About from './components/About.jsx'
 import ServicesSection from './components/ServicesSection.jsx'
 import ProjectsSection from './components/ProjectsSection.jsx'
 import TestimonialsSection from './components/TestimonialsSection.jsx'
-import SpeakingSection from './components/SpeakingSection.jsx'
 
 function App() {
   return (
@@ -19,7 +18,6 @@ function App() {
       <ServicesSection />
       <ProjectsSection />
       <TestimonialsSection />
-      <SpeakingSection />
     </>
   )
 }
