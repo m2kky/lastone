@@ -1,148 +1,175 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import "./speaking.css";
 
-/**
- * SpeakingSection.jsx
- * - Uses framer-motion for scroll-linked micro animations.
- * - Import speaking.css for styles.
- *
- * Notes:
- * - Replace image src paths with your real assets.
- * - Implement openVideoModal if you want clicking the big image to open a modal video.
- */
+// Past sessions data
+const pastSessions = [
+  {
+    id: 1,
+    title: "AI-Driven Marketing Automation",
+    event: "TechCrunch Disrupt 2024",
+    thumbnail: "/images/speaking/speaker.jpg",
+    duration: "45 min"
+  },
+  {
+    id: 2,
+    title: "Building Scalable Growth Systems",
+    event: "Startup Grind Global",
+    thumbnail: "/images/speaking/speaker2.jpg",
+    duration: "30 min"
+  },
+  {
+    id: 3,
+    title: "Performance Marketing in 2024",
+    event: "Marketing Land Summit",
+    thumbnail: "/images/speaking/audience.jpg",
+    duration: "60 min"
+  },
+  {
+    id: 4,
+    title: "Team Enablement Strategies",
+    event: "HR Tech Conference",
+    thumbnail: "/images/speaking/speaker.jpg",
+    duration: "40 min"
+  }
+];
 
-const AnimatedSemicircle = ({ position }) => {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const pathLength = useTransform(scrollYProgress, [0.1, 0.7], [0, 1]);
-
-  const d = position === "top-right" ? "M 0 200 A 200 200 0 0 1 200 0" : "M 200 0 A 200 200 0 0 1 0 200";
-
+const ScrollIndicator = () => {
   return (
-    <div
-      ref={ref}
-      className={`semicircle ${position === "top-right" ? "sr-topright" : "sr-bottomleft"}`}
-      aria-hidden="true"
+    <motion.div 
+      className="scroll-indicator"
+      animate={{ y: [0, 10, 0] }}
+      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
     >
-      <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" preserveAspectRatio="none" role="img" aria-hidden="true">
-        <motion.path d={d} stroke="#EB5E28" strokeWidth="2" style={{ pathLength }} strokeLinecap="round" />
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M7 13l3 3 3-3M7 6l3 3 3-3"/>
       </svg>
-    </div>
+    </motion.div>
   );
 };
 
 export default function SpeakingSection() {
   const sectionRef = useRef(null);
+  const [showSessions, setShowSessions] = useState(false);
+  
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ["start end", "end center"],
+    offset: ["start end", "end start"],
   });
 
-  // motion transforms
-  const speakerY = useTransform(scrollYProgress, [0.1, 0.9], [20, -40]);
-  const speakerScale = useTransform(scrollYProgress, [0.1, 0.9], [0.98, 1.02]);
+  // Spotlight animation
+  const spotlightScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
+  const spotlightOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.3]);
+  
+  // Content animations
+  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
-  const audienceY = useTransform(scrollYProgress, [0.1, 0.9], [-10, 30]);
-  const audienceScale = useTransform(scrollYProgress, [0.1, 0.9], [1, 0.96]);
+  // Sessions grid animation
+  const sessionsY = useTransform(scrollYProgress, [0.2, 0.8], [100, 0]);
+  const sessionsOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
 
   return (
-    <section id="speaking" ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">
-      {/* Background dimmed image - Audience as background */}
+    <section ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">
+      {/* Dark background with audience */}
       <div className="speaking-bg" aria-hidden="true">
         <img src="/images/speaking/audience.jpg" alt="Audience background" className="bg-img" />
       </div>
 
-      <AnimatedSemicircle position="top-right" />
-      <AnimatedSemicircle position="bottom-left" />
+      {/* Spotlight effect */}
+      <motion.div 
+        className="spotlight"
+        style={{ 
+          scale: spotlightScale,
+          opacity: spotlightOpacity
+        }}
+      />
 
+      {/* Main content - centered */}
       <div className="speaking-container">
-        {/* Left: images */}
-        <div className="speaking-left">
-          <motion.div style={{ y: speakerY, scale: speakerScale }} className="speaker-card">
-            <button
-              className="speaker-btn"
-              type="button"
-              aria-label="Play highlight video"
-              // onClick={() => openVideoModal('/videos/highlight.mp4')}
-            >
-              <img src="/images/speaking/speaker.jpg" alt="Muhammed Mekky speaking" className="speaker-img" />
-            </button>
-          </motion.div>
+        <motion.div 
+          className="speaking-hero"
+          style={{ 
+            y: contentY,
+            opacity: contentOpacity
+          }}
+        >
+          {/* Speaker image with spotlight */}
+          <div className="speaker-spotlight">
+            <img 
+              src="/images/speaking/speaker.jpg" 
+              alt="Muhammed Mekky" 
+              className="speaker-image"
+            />
+          </div>
 
-          <motion.div style={{ y: audienceY, scale: audienceScale }} className="audience-card" aria-hidden="true">
-            <img src="/images/speaking/speaker2.jpg" alt="Speaker headshot" className="audience-img" />
-          </motion.div>
-        </div>
-
-        {/* Right: text */}
-        <div className="speaking-right">
-          <h2 id="speaking-title" className="speaking-title">
+          {/* Title and content */}
+          <h1 className="speaking-title">
             SPEAKING
             <br />
             ENGAGEMENTS
-          </h2>
+          </h1>
 
-          <div className="speaking-copy">
-            <p>
-              Muhammed Mekky delivers keynotes and workshops that empower teams to design smarter, AI-driven marketing systems.
-              With 7+ years across marketing, automation and AI workflows, and dozens of speaking appearances, he brings practical
-              frameworks teams can implement immediately.
-            </p>
+          <p className="speaking-tagline">
+            Inspiring teams to work smarter through automation, AI, and performance strategy.
+          </p>
 
-            <p>
-              Whether addressing startups, corporate teams, or university audiences, his sessions blend strategy with storytelling —
-              turning complex systems into actionable, human-centered practices.
-            </p>
-          </div>
+          {/* Action buttons */}
+          <div className="speaking-actions">
+            <motion.a 
+              href="/watch-highlights" 
+              className="btn btn-primary"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Watch Highlights
+            </motion.a>
 
-          <div className="speaking-stats" aria-hidden="false">
-            <div className="stat">
-              <div className="stat-number">+7</div>
-              <div className="stat-label">Years Experience</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">50+</div>
-              <div className="stat-label">Speaking Events</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">3,000+</div>
-              <div className="stat-label">Professionals Trained</div>
-            </div>
-          </div>
-
-          <div className="speaking-ctas">
             <motion.a 
               href="/book-workshop" 
-              aria-label="Book a workshop" 
-              className="btn btn-primary"
-              whileHover={{ scale: 1.03 }} 
-              whileTap={{ scale: 0.98 }}
+              className="btn btn-outline"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
             >
               Book a Workshop
             </motion.a>
-
-            <motion.a 
-              href="/speaking" 
-              aria-label="View speaking sessions" 
-              className="btn btn-outline"
-              whileHover={{ scale: 1.03 }} 
-              whileTap={{ scale: 0.98 }}
-            >
-              View Sessions
-            </motion.a>
           </div>
 
-          <blockquote className="speaking-quote" aria-label="Testimonial">
-            "Muhammed's session restructured our team's approach to automation — from concept to delivery. Practical, clear and actionable."
-            <cite className="quote-by">— Lina A., Head of Growth</cite>
-          </blockquote>
-        </div>
+          {/* Scroll indicator */}
+          <ScrollIndicator />
+        </motion.div>
+
+        {/* Past sessions grid - appears on scroll */}
+        <motion.div 
+          className="sessions-grid"
+          style={{ 
+            y: sessionsY,
+            opacity: sessionsOpacity
+          }}
+        >
+          <h3 className="sessions-title">Recent Sessions</h3>
+          <div className="sessions-list">
+            {pastSessions.map((session) => (
+              <motion.div 
+                key={session.id}
+                className="session-card"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <div className="session-thumbnail">
+                  <img src={session.thumbnail} alt={session.title} />
+                  <div className="session-duration">{session.duration}</div>
+                </div>
+                <div className="session-info">
+                  <h4 className="session-title">{session.title}</h4>
+                  <p className="session-event">{session.event}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

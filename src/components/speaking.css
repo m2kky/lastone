@@ -1,140 +1,321 @@
-/* speaking.css - styles for SpeakingSection.jsx
-   Keep this file next to the component and import it in the JSX.
-   Uses simple, responsive layout and colors matching your "flame" palette.
-*/
+/* speaking.css - Cinematic Stage Experience Design */
 
 /* Variables */
 :root {
-  --bg: #0b0b0b;
-  --panel: #0f0f0f;
-  --flame: #EB5E28;
-  --muted: rgba(255,255,255,0.72);
-  --muted-2: rgba(255,255,255,0.6);
+  --bg: #000000;
+  --spotlight: #EB5E28;
+  --text: #ffffff;
+  --muted: rgba(255,255,255,0.8);
+  --accent: #EB5E28;
 }
 
-/* Section */
+/* Section - Full viewport cinematic */
 .speaking-section {
   position: relative;
   background: var(--bg);
-  color: #fff;
-  padding: 6rem 0;
+  color: var(--text);
+  min-height: 100vh;
   overflow: hidden;
-  min-height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Background image wrapper - Audience as background */
+/* Background with audience - very dark */
 .speaking-bg {
   position: absolute;
   inset: 0;
-  z-index: 0;
+  z-index: 1;
   overflow: hidden;
 }
+
 .speaking-bg .bg-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(.28) contrast(.95);
+  filter: brightness(0.1) contrast(1.2);
 }
 
-/* Decorative semicircles */
-.semicircle {
+/* Spotlight effect - circular light on speaker */
+.spotlight {
   position: absolute;
-  width: 150px;
-  height: 150px;
-  z-index: 5;
-  opacity: 0.36;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(
+    circle,
+    rgba(235, 94, 40, 0.15) 0%,
+    rgba(235, 94, 40, 0.08) 30%,
+    rgba(235, 94, 40, 0.03) 60%,
+    transparent 100%
+  );
+  border-radius: 50%;
+  z-index: 2;
   pointer-events: none;
 }
-.sr-topright { top: 0; right: 0; }
-.sr-bottomleft { bottom: 0; left: 0; }
 
-/* Container */
+@media (min-width: 768px) {
+  .spotlight {
+    width: 800px;
+    height: 800px;
+  }
+}
+
+/* Main container */
 .speaking-container {
   position: relative;
   z-index: 10;
-  max-width: 1180px;
+  width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 2.25rem;
-  padding: 0 1.25rem;
-}
-@media (min-width: 768px) {
-  .speaking-container { grid-template-columns: 1fr 1fr; align-items: center; }
+  padding: 2rem;
+  text-align: center;
 }
 
-/* Left column (images) */
-.speaking-left { position: relative; height: 320px; max-width: 820px; margin: 0 auto; }
-@media (min-width: 640px) { .speaking-left { height: 420px; } }
-@media (min-width: 992px) { .speaking-left { height: 488px; } }
+/* Hero section - centered content */
+.speaking-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
 
-.speaker-card {
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
+/* Speaker image with spotlight effect */
+.speaker-spotlight {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 18px 50px rgba(0,0,0,0.6);
+  box-shadow: 
+    0 0 0 4px rgba(235, 94, 40, 0.3),
+    0 0 0 8px rgba(235, 94, 40, 0.1),
+    0 0 40px rgba(235, 94, 40, 0.2),
+    0 0 80px rgba(0, 0, 0, 0.8);
+  z-index: 3;
 }
 
-.speaker-btn { width: 100%; height: 100%; display: block; background: transparent; border: none; padding: 0; cursor: pointer; }
-.speaker-img { width: 100%; height: 100%; object-fit: cover; }
+.speaker-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 
-/* Inset audience thumbnail */
-.audience-card {
+@media (min-width: 768px) {
+  .speaker-spotlight {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Title - large and bold */
+.speaking-title {
+  font-family: "Bebas Neue", "Impact", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin: 0;
+  font-size: 3rem;
+  line-height: 0.9;
+  text-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+  .speaking-title {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .speaking-title {
+    font-size: 5rem;
+  }
+}
+
+/* Tagline */
+.speaking-tagline {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0;
+  line-height: 1.6;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 768px) {
+  .speaking-tagline {
+    font-size: 1.25rem;
+  }
+}
+
+/* Action buttons */
+.speaking-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 50px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+  text-align: center;
+  min-width: 160px;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+  border: 2px solid var(--accent);
+  box-shadow: 0 4px 20px rgba(235, 94, 40, 0.3);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: 0 4px 20px rgba(235, 94, 40, 0.5);
+}
+
+.btn-outline {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  box-shadow: 0 4px 20px rgba(235, 94, 40, 0.2);
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: #000;
+  box-shadow: 0 4px 20px rgba(235, 94, 40, 0.5);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 160px;
-  height: 104px;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--muted);
+  opacity: 0.7;
+  z-index: 10;
+}
+
+/* Sessions grid - appears on scroll */
+.sessions-grid {
+  margin-top: 4rem;
+  padding: 2rem 0;
+}
+
+.sessions-title {
+  font-family: "Bebas Neue", "Impact", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  color: var(--text);
+  text-align: center;
+}
+
+.sessions-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.session-card {
+  background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
-  border: 2px solid rgba(0,0,0,0.6);
-}
-@media (min-width: 640px) { .audience-card { width: 220px; height: 148px; } }
-@media (min-width: 992px) { .audience-card { width: 290px; height: 188px; } }
-.audience-img { width: 100%; height: 100%; object-fit: cover; }
-
-/* Right column */
-.speaking-right { max-width: 520px; margin: 0 auto; }
-.speaking-title { font-family: "Bebas Neue", "Impact", sans-serif; font-weight: 700; letter-spacing: 2px; margin: 0; font-size: 2.25rem; line-height: 1; }
-@media (min-width: 768px) { .speaking-title { font-size: 3rem; } }
-@media (min-width: 992px) { .speaking-title { font-size: 3.5rem; } }
-
-.speaking-copy { margin-top: 1rem; color: var(--muted); font-size: 0.98rem; line-height: 1.6; }
-
-/* Stats */
-.speaking-stats { margin-top: 1.25rem; display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; }
-.stat { display: flex; flex-direction: column; }
-.stat-number { color: var(--flame); font-weight: 700; font-size: 1.4rem; }
-.stat-label { color: var(--muted-2); font-size: 0.75rem; margin-top: .15rem; }
-
-/* CTAs */
-.speaking-ctas { margin-top: 1.5rem; display:flex; gap: 1rem; align-items:center; flex-wrap:wrap; }
-.btn { display:inline-block; text-decoration:none; cursor:pointer; border-radius: 999px; font-weight: 700; letter-spacing: .6px; }
-.btn-primary {
-  background: var(--flame);
-  color: #000;
-  padding: .6rem 1.25rem;
-  box-shadow: 0 8px 24px rgba(235,94,40,0.18);
-}
-.btn-outline {
-  border: 2px solid var(--flame);
-  color: #fff;
-  padding: .48rem 1rem;
-  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* Testimonial */
-.speaking-quote { margin-top: 1.5rem; color: rgba(255,255,255,0.74); font-style: italic; border-left: 3px solid rgba(255,255,255,0.06); padding-left: 1rem; }
-.quote-by { display:block; margin-top: .5rem; color: rgba(255,255,255,0.6); font-style: normal; font-size: .86rem; }
+.session-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
 
-/* Responsive tweaks */
+.session-thumbnail {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+
+.session-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.session-duration {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--text);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.session-info {
+  padding: 1rem;
+}
+
+.session-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--text);
+}
+
+.session-event {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Responsive design */
 @media (max-width: 767px) {
-  .speaking-section { padding: 3.5rem 0; }
-  .speaking-container { gap: 1.25rem; }
-  .speaking-left { height: 260px; }
-  .speaking-title { font-size: 2rem; }
-  .speaking-stats { gap: .9rem; }
-  .audience-card { top: .5rem; right: .5rem; width: 120px; height: 84px; }
+  .speaking-container {
+    padding: 1rem;
+  }
+  
+  .speaking-title {
+    font-size: 2.5rem;
+  }
+  
+  .speaking-tagline {
+    font-size: 1rem;
+  }
+  
+  .speaking-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .btn {
+    width: 100%;
+    max-width: 280px;
+  }
+  
+  .sessions-list {
+    grid-template-columns: 1fr;
+  }
 }
