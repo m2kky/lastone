@@ -17,7 +17,7 @@
   min-height: 100vh;
 }
 
-/* Background image wrapper */
+/* Background image wrapper - Audience as background */
 .speaking-bg {
   position: absolute;
   inset: 0;
@@ -28,7 +28,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.1;
+  filter: brightness(0.3) contrast(0.9);
 }
 
 /* Decorative semicircles */
@@ -93,33 +93,34 @@
   object-fit: cover; 
 }
 
-/* Audience image - top right, overlapping main speaker */
-.audience-card {
+/* Headshot image - top right, overlapping main speaker */
+.headshot-card {
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 180px;
-  height: 118px;
-  border-radius: 1rem;
+  top: 1rem;
+  right: 1rem;
+  width: 120px;
+  height: 80px;
+  border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 12px 30px rgba(0,0,0,0.6);
   border: 2px solid #000;
   z-index: 2;
 }
 @media (min-width: 640px) { 
-  .audience-card { 
-    width: 220px; 
-    height: 148px; 
-    border: 4px solid #000;
+  .headshot-card { 
+    width: 160px; 
+    height: 110px; 
+    border: 3px solid #000;
   } 
 }
 @media (min-width: 768px) { 
-  .audience-card { 
-    width: 290px; 
-    height: 188px; 
+  .headshot-card { 
+    width: 200px; 
+    height: 140px; 
+    border: 4px solid #000;
   } 
 }
-.audience-img { 
+.headshot-img { 
   width: 100%; 
   height: 100%; 
   object-fit: cover; 
@@ -159,6 +160,9 @@
 /* CTAs */
 .speaking-ctas { 
   margin-top: 2rem; 
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .btn { 
@@ -170,14 +174,26 @@
   letter-spacing: 0.1em; 
   font-family: "Bebas Neue", "Impact", sans-serif;
   transition: all 0.3s ease;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.btn-primary {
+  background: var(--flame);
+  color: #000;
+  border: 2px solid var(--flame);
+}
+
+.btn-primary:hover {
+  background: transparent;
+  color: var(--flame);
 }
 
 .btn-outline {
   border: 2px solid var(--flame);
   color: #fff;
-  padding: 0.75rem 2rem;
   background: transparent;
-  font-size: 1rem;
 }
 
 .btn-outline:hover {
@@ -200,8 +216,8 @@
   .speaking-title { 
     font-size: 2rem; 
   }
-  .audience-card { 
-    width: 150px; 
-    height: 100px; 
+  .headshot-card { 
+    width: 100px; 
+    height: 70px; 
   }
 }

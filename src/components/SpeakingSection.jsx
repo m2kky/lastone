@@ -43,9 +43,9 @@ export default function SpeakingSection() {
 
   return (
     <section ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">
-      {/* Background dimmed image */}
+      {/* Audience background image */}
       <div className="speaking-bg" aria-hidden="true">
-        <img src="/images/speaking/background.jpg" alt="Audience background" className="bg-img" />
+        <img src="/images/speaking/audience.jpg" alt="Audience background" className="bg-img" />
       </div>
 
       <AnimatedSemicircle position="top-right" />
@@ -58,8 +58,8 @@ export default function SpeakingSection() {
             <img src="/images/speaking/speaker.jpg" alt="Dr. Mahmoud Bravo Speaking" className="speaker-img" />
           </motion.div>
 
-          <motion.div style={{ y: audienceImageY, scale: audienceImageScale }} className="audience-card" aria-hidden="true">
-            <img src="/images/speaking/audience.jpg" alt="Audience" className="audience-img" />
+          <motion.div style={{ y: audienceImageY, scale: audienceImageScale }} className="headshot-card" aria-hidden="true">
+            <img src="/images/speaking/speaker2.jpg" alt="Speaker headshot" className="headshot-img" />
           </motion.div>
         </div>
 
@@ -83,14 +83,25 @@ export default function SpeakingSection() {
 
           <div className="speaking-ctas">
             <motion.a 
-              href="/enquiries" 
-              aria-label="Speaking enquiries" 
+              href="/book-workshop" 
+              aria-label="Book a workshop" 
+              className="btn btn-primary"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              Book a Workshop
+            </motion.a>
+
+            <motion.a 
+              href="/view-sessions" 
+              aria-label="View sessions" 
               className="btn btn-outline"
               whileHover={{ backgroundColor: "#E31B23", scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ type: "spring", stiffness: 300 }}
             >
-              Speaking Enquiries
+              View Sessions
             </motion.a>
           </div>
         </div>
