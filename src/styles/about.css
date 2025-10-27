@@ -55,6 +55,7 @@
   opacity: 0;
   transform: translateY(20px);
   margin-right: 0.1em;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .about-title .word.accent {
@@ -92,6 +93,17 @@
   line-height: 1.6;
   opacity: 0;
   color: rgba(255, 255, 255, 0.9);
+  transition: opacity 0.3s ease;
+}
+
+/* Fallback: Show content after 2 seconds if JS doesn't work */
+.about:not(.js-loaded) .about-title .word {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about:not(.js-loaded) .about-body {
+  opacity: 1;
 }
 
 .about-body:last-child {

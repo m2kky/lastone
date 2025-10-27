@@ -11,6 +11,11 @@ function About() {
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger, TextPlugin)
 
+    // Add JS loaded class
+    if (rootRef.current) {
+      rootRef.current.classList.add('js-loaded')
+    }
+
     const ctx = gsap.context(() => {
       // Get elements
       const portrait = rootRef.current?.querySelector('.about-portrait')
@@ -52,8 +57,8 @@ function About() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: rootRef.current,
-          start: 'top top',
-          end: '+=250%',
+          start: 'top 80%',
+          end: '+=200%',
           scrub: 1,
           pin: true,
         }
@@ -114,6 +119,29 @@ function About() {
           ease: 'power2.out'
         }, 'cta')
       }
+
+      // Fallback: If scroll trigger doesn't work, show elements after delay
+      setTimeout(() => {
+        if (titleWords.length > 0) {
+          gsap.to(titleWords, { opacity: 1, y: 0, stagger: 0.1, duration: 0.5 })
+        }
+        if (bodyElements && bodyElements.length > 0) {
+          bodyElements.forEach((element, index) => {
+            const content = element.dataset.full || ''
+            gsap.to(element, { opacity: 1, duration: 0.3, delay: index * 0.2 })
+            gsap.to(element, { 
+              text: content, 
+              duration: 0.8, 
+              ease: 'none',
+              delay: index * 0.2 + 0.3,
+              onStart: () => { element.textContent = '' }
+            })
+          })
+        }
+        if (ctaElements && ctaElements.length > 0) {
+          gsap.to(ctaElements, { opacity: 1, y: 0, stagger: 0.1, duration: 0.3, delay: 1.5 })
+        }
+      }, 1000)
 
     }, rootRef)
 
