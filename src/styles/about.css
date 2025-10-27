@@ -110,6 +110,12 @@
   margin-bottom: 0;
 }
 
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
 .about-cta {
   display: flex;
   justify-content: center;
@@ -242,7 +248,7 @@
   .about-stage {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    align-items: center;
+    align-items: start;
     gap: 60px;
     padding: 80px 60px;
     max-width: 1400px;
@@ -256,6 +262,12 @@
   
   .about-portrait {
     width: clamp(400px, 35vw, 500px);
+  }
+  
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
   
   .about-title {
