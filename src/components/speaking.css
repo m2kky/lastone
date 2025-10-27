@@ -95,6 +95,23 @@
 @media (min-width: 992px) { .audience-card { width: 290px; height: 188px; } }
 .audience-img { width: 100%; height: 100%; object-fit: cover; }
 
+/* Second speaker image - positioned behind main speaker */
+.speaker2-card {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  width: 140px;
+  height: 90px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.6);
+  border: 2px solid rgba(0,0,0,0.6);
+  z-index: 1;
+}
+@media (min-width: 640px) { .speaker2-card { width: 200px; height: 130px; } }
+@media (min-width: 992px) { .speaker2-card { width: 260px; height: 170px; } }
+.speaker2-img { width: 100%; height: 100%; object-fit: cover; }
+
 /* Right column */
 .speaking-right { max-width: 520px; margin: 0 auto; }
 .speaking-title { font-family: "Bebas Neue", "Impact", sans-serif; font-weight: 700; letter-spacing: 2px; margin: 0; font-size: 2.25rem; line-height: 1; }

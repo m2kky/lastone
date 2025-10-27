@@ -51,6 +51,10 @@ export default function SpeakingSection() {
   const audienceY = useTransform(scrollYProgress, [0.1, 0.9], [-10, 30]);
   const audienceScale = useTransform(scrollYProgress, [0.1, 0.9], [1, 0.96]);
 
+  // Second speaker image - moves opposite to audience
+  const speaker2Y = useTransform(scrollYProgress, [0.1, 0.9], [30, -10]);
+  const speaker2Scale = useTransform(scrollYProgress, [0.1, 0.9], [0.96, 1]);
+
   return (
     <section id="speaking" ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">
       {/* Background dimmed image */}
@@ -77,6 +81,11 @@ export default function SpeakingSection() {
 
           <motion.div style={{ y: audienceY, scale: audienceScale }} className="audience-card" aria-hidden="true">
             <img src="/images/speaking/audience.jpg" alt="Audience" className="audience-img" />
+          </motion.div>
+
+          {/* Second speaker image - moves opposite to audience */}
+          <motion.div style={{ y: speaker2Y, scale: speaker2Scale }} className="speaker2-card" aria-hidden="true">
+            <img src="/images/speaking/speaker2.jpg" alt="Speaker 2" className="speaker2-img" />
           </motion.div>
         </div>
 
