@@ -59,17 +59,17 @@ export default function SpeakingSection() {
     offset: ["start end", "end start"],
   });
 
-  // Spotlight animation
-  const spotlightScale = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
-  const spotlightOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.3]);
+  // Spotlight animation - stays longer
+  const spotlightScale = useTransform(scrollYProgress, [0, 0.6], [1, 0.7]);
+  const spotlightOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0.4]);
   
-  // Content animations
-  const contentY = useTransform(scrollYProgress, [0, 0.5], [0, -50]);
-  const contentOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
+  // Content animations - fade out later
+  const contentY = useTransform(scrollYProgress, [0, 0.7], [0, -50]);
+  const contentOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
-  // Sessions grid animation
-  const sessionsY = useTransform(scrollYProgress, [0.2, 0.8], [100, 0]);
-  const sessionsOpacity = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  // Sessions grid animation - starts later
+  const sessionsY = useTransform(scrollYProgress, [0.4, 0.9], [100, 0]);
+  const sessionsOpacity = useTransform(scrollYProgress, [0.4, 0.6], [0, 1]);
 
   return (
     <section ref={sectionRef} className="speaking-section" role="region" aria-labelledby="speaking-title">

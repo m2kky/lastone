@@ -42,24 +42,33 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 600px;
-  height: 600px;
+  width: 700px;
+  height: 700px;
   background: radial-gradient(
     circle,
-    rgba(235, 94, 40, 0.15) 0%,
-    rgba(235, 94, 40, 0.08) 30%,
-    rgba(235, 94, 40, 0.03) 60%,
+    rgba(235, 94, 40, 0.25) 0%,
+    rgba(235, 94, 40, 0.15) 25%,
+    rgba(235, 94, 40, 0.08) 50%,
+    rgba(235, 94, 40, 0.03) 75%,
     transparent 100%
   );
   border-radius: 50%;
   z-index: 2;
   pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 @media (min-width: 768px) {
   .spotlight {
-    width: 800px;
-    height: 800px;
+    width: 900px;
+    height: 900px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .spotlight {
+    width: 1000px;
+    height: 1000px;
   }
 }
 
