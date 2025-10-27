@@ -297,32 +297,72 @@ function ServicesSection() {
 
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
+      // Set initial states
       gsap.set([headerRef.current, subRef.current], { opacity: 1, y: 0 })
       gsap.set(listRef.current?.children, { opacity: 1, y: 0 })
       gsap.set(statsRef.current, { opacity: 1, y: 0 })
 
       // Counter animation for stats
       const nums = statsRef.current?.querySelectorAll('.num') || []
-      nums.forEach((el) => {
+      console.log('Found numbers:', nums.length) // Debug log
+      
+      nums.forEach((el, index) => {
         const target = Number(el.getAttribute('data-target') || '0')
         const prefix = el.getAttribute('data-prefix') || ''
         const suffix = el.getAttribute('data-suffix') || ''
+        console.log(`Number ${index}: target=${target}, prefix=${prefix}, suffix=${suffix}`) // Debug log
+        
         const obj = { val: 0 }
+        
+        // Set initial text content
+        el.textContent = `${prefix}0${suffix}`
+        
         gsap.to(obj, {
           val: target,
           duration: Math.min(2.2, 0.02 * target + 0.8),
           ease: 'power1.out',
           scrollTrigger: {
-            trigger: rootRef.current,
-            start: 'top 60%',
-            toggleActions: 'play none none reverse'
+            trigger: statsRef.current,
+            start: 'top 80%',
+            end: 'bottom 20%',
+            toggleActions: 'play none none reverse',
+            onEnter: () => {
+              console.log('ScrollTrigger entered for stats') // Debug log
+            }
           },
           onUpdate: () => {
             const v = Math.round(obj.val)
             el.textContent = `${prefix}${v}${suffix}`
           },
+          onComplete: () => {
+            console.log(`Animation completed for number ${index}: ${prefix}${target}${suffix}`) // Debug log
+          }
         })
       })
+
+      // Fallback: If ScrollTrigger doesn't work, animate after 1 second
+      setTimeout(() => {
+        const nums = statsRef.current?.querySelectorAll('.num') || []
+        nums.forEach((el) => {
+          const target = Number(el.getAttribute('data-target') || '0')
+          const prefix = el.getAttribute('data-prefix') || ''
+          const suffix = el.getAttribute('data-suffix') || ''
+          
+          if (el.textContent === `${prefix}0${suffix}`) {
+            console.log('Running fallback animation for:', el)
+            const obj = { val: 0 }
+            gsap.to(obj, {
+              val: target,
+              duration: 2,
+              ease: 'power1.out',
+              onUpdate: () => {
+                const v = Math.round(obj.val)
+                el.textContent = `${prefix}${v}${suffix}`
+              }
+            })
+          }
+        })
+      }, 1000)
     }, rootRef)
 
     // Add mouse leave listener to the entire services section
