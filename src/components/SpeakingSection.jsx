@@ -99,39 +99,32 @@ export default function SpeakingSection() {
 
           <div className="speaking-copy">
             <p>
-              Muhammed Mekky delivers keynotes and workshops that empower teams to design smarter, AI-driven marketing systems.
-              With 7+ years across marketing, automation and AI workflows, and dozens of speaking appearances, he brings practical
-              frameworks teams can implement immediately.
+              Muhammed Mekky is one of the most influential healthcare marketing leaders in the MENA region, with over 15 years of experience and 50+ keynote appearances. He inspires and empowers audiences, delivering insights on leadership, innovation, and transformation.
             </p>
 
             <p>
-              Whether addressing startups, corporate teams, or university audiences, his sessions blend strategy with storytelling —
-              turning complex systems into actionable, human-centered practices.
+              His sessions blend strategy with storytelling — turning complex ideas into practical, actionable strategies that audiences can implement immediately.
             </p>
           </div>
 
           <div className="speaking-stats" aria-hidden="false">
             <div className="stat">
-              <div className="stat-number">+7</div>
+              <div className="stat-number">15+</div>
               <div className="stat-label">Years Experience</div>
             </div>
             <div className="stat">
               <div className="stat-number">50+</div>
-              <div className="stat-label">Speaking Events</div>
+              <div className="stat-label">Keynote Appearances</div>
             </div>
             <div className="stat">
-              <div className="stat-number">3,000+</div>
-              <div className="stat-label">Professionals Trained</div>
+              <div className="stat-number">5,000+</div>
+              <div className="stat-label">Professionals Inspired</div>
             </div>
           </div>
 
           <div className="speaking-ctas">
-            <a href="/book-workshop" aria-label="Book a workshop" className="btn btn-primary">
-              Book a Workshop
-            </a>
-
-            <a href="/speaking" aria-label="View speaking sessions" className="btn btn-outline">
-              View Sessions
+            <a href="/speaking-enquiries" aria-label="Speaking enquiries" className="btn btn-outline">
+              SPEAKING ENQUIRIES
             </a>
           </div>
 
