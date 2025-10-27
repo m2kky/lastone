@@ -253,9 +253,9 @@
     align-items: start;
     gap: 60px;
     padding: 80px 60px 0;
-    max-width: 1024px;
+    max-width: 1400px;
     margin: 0 auto;
-    min-height: 1024px;
+    min-height: auto;
   }
   
   .about-graphic {
@@ -304,8 +304,7 @@
   .about-stage {
     gap: 80px;
     padding: 100px 20px 0;
-    min-height: 1024px;
-    max-width: 1024px;
+    min-height: auto;
   }
   
   .about-portrait {
