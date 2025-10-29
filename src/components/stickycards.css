@@ -5,7 +5,7 @@
 .sticky-header {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 48px 16px 8px 16px;
+  padding: 80px 16px 20px 16px;
   text-align: center;
 }
 
@@ -22,11 +22,13 @@
 }
 
 .sticky-title {
-  font-size: clamp(28px, 4vw, 48px);
-  line-height: 1.1;
-  font-weight: 800;
+  font-size: clamp(48px, 8vw, 96px);
+  line-height: 1;
+  font-weight: 900;
   color: #ffffff;
-  margin: 0 0 10px 0;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .sticky-subtitle {
@@ -71,20 +73,51 @@
   will-change: transform;
 }
 
-.card-badge {
+.card-content {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  inset: 0;
   z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px;
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6));
+  border-radius: 16px;
+}
+
+.card-title {
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.card-badge {
   display: inline-block;
-  font-size: 12px;
+  font-size: clamp(11px, 1.5vw, 14px);
   letter-spacing: .12em;
-  color: #e8e8e8;
-  border: 1px solid #2a2a2a;
-  background: rgba(0,0,0,.55);
-  backdrop-filter: blur(4px);
-  padding: 6px 12px;
+  color: #111;
+  background: #EB5E28;
+  padding: 8px 20px;
   border-radius: 999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  box-shadow: 0 4px 12px rgba(235, 94, 40, 0.4);
+}
+
+.card-subtitle {
+  font-size: clamp(14px, 2vw, 18px);
+  color: #e8e8e8;
+  margin: 0;
+  max-width: 600px;
+  line-height: 1.5;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
 }
 
 @media (max-width: 768px) {

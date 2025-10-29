@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import './stickycards.css'
 
 // Simple sticky stacked-cards section using GSAP + ScrollTrigger
-// Props: cards: [{ id, image, alt }], className?: string
+// Props: cards: [{ id, image, alt, badge, title, subtitle }], className?: string
 export default function StickyCards({ cards = [], className = '', tag, title, subtitle }) {
   const containerRef = useRef(null)
   const stackRef = useRef(null)
@@ -77,12 +77,16 @@ export default function StickyCards({ cards = [], className = '', tag, title, su
               className="card-layer"
               ref={el => (layerRefs.current[i] = el)}
             >
-              {card.badge && <span className="card-badge">{card.badge}</span>}
               <img
                 src={card.image}
                 alt={card.alt || ''}
                 className="card-image"
               />
+              <div className="card-content">
+                {card.badge && <span className="card-badge">{card.badge}</span>}
+                {card.title && <h3 className="card-title">{card.title}</h3>}
+                {card.subtitle && <p className="card-subtitle">{card.subtitle}</p>}
+              </div>
             </div>
           ))}
         </div>
@@ -94,13 +98,13 @@ export default function StickyCards({ cards = [], className = '', tag, title, su
 // Demo dataset for quick testing. Import and render <StickyCardsDemo /> if needed.
 export function StickyCardsDemo() {
   const demoCards = [
-    { id: 1, image: '/images/lectures/automation.png', badge: 'Campaigns' },
-    { id: 2, image: '/images/lectures/notion.png', badge: 'Social Media Management' },
-    { id: 3, image: '/images/lectures/brandbuild.png', badge: 'Branding' },
-    { id: 4, image: '/images/lectures/powerofprompts.png', badge: 'AI & Automation' },
-    { id: 5, image: '/images/lectures/promptology.png', badge: 'Training' },
+    { id: 1, image: '/images/lectures/automation.png', title: 'Marketing Campaigns', badge: 'Campaigns', subtitle: 'Strategic campaigns that drive results' },
+    { id: 2, image: '/images/lectures/notion.png', title: 'Social Media', badge: 'Social Media Management', subtitle: 'Building engaged communities online' },
+    { id: 3, image: '/images/lectures/brandbuild.png', title: 'Brand Identity', badge: 'Branding', subtitle: 'Creating memorable brand experiences' },
+    { id: 4, image: '/images/lectures/powerofprompts.png', title: 'AI Solutions', badge: 'AI & Automation', subtitle: 'Intelligent automation for modern workflows' },
+    { id: 5, image: '/images/lectures/promptology.png', title: 'Team Training', badge: 'Training', subtitle: 'Empowering teams with practical skills' },
   ]
-  return <StickyCards cards={demoCards} />
+  return <StickyCards cards={demoCards} title="Projects" />
 }
 
 

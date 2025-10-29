@@ -1,0 +1,48 @@
+.footer {
+  background: #000;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-text {
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.footer-tagline {
+  font-size: 0.85rem;
+  color: #EB5E28;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 2.5rem 2rem;
+  }
+
+  .footer-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-size: 1rem;
+  }
+
+  .footer-tagline {
+    font-size: 0.9rem;
+  }
+}

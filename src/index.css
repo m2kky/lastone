@@ -27,6 +27,13 @@ body {
   min-width: 320px;
   min-height: 100vh;
   overflow-x: hidden;
+  cursor: none;
+}
+
+@media (max-width: 768px) {
+  body {
+    cursor: auto;
+  }
 }
 
 #root {

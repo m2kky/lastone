@@ -1,6 +1,6 @@
 /* Lectures Section Styles */
 .lectures-section {
-  padding: 120px 0;
+  padding: 10;
   background: #0f0f0f;
   position: relative;
   overflow: hidden;
@@ -20,39 +20,9 @@
 .container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 2;
   position: relative;
   z-index: 2;
-}
-
-/* Header Styles */
-.lectures-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.lectures-title {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 900;
-  line-height: 0.9;
-  margin-bottom: 20px;
-  color: #ffffff;
-}
-
-.title-line {
-  display: block;
-  background: linear-gradient(135deg, #00ff88, #00d4ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.lectures-subtitle {
-  font-size: 1.2rem;
-  color: #888;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
 }
 
 /* Desktop Gallery Grid */
@@ -273,19 +243,7 @@
 
 @media (max-width: 768px) {
   .lectures-section {
-    padding: 80px 0;
-  }
-  
-  .lectures-header {
-    margin-bottom: 50px;
-  }
-  
-  .lectures-title {
-    font-size: clamp(2.5rem, 10vw, 4rem);
-  }
-  
-  .lectures-subtitle {
-    font-size: 1rem;
+    padding: 0;
   }
   
   .desktop-only {

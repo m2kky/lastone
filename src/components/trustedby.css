@@ -1,0 +1,87 @@
+.trusted-by {
+  background: #0f0f0f;
+  padding: 80px 0;
+  overflow: hidden;
+}
+
+.trusted-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.trusted-title {
+  text-align: center;
+  font-size: clamp(32px, 5vw, 48px);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 60px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.trusted-carousel {
+  overflow: hidden;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 10%,
+    black 90%,
+    transparent
+  );
+}
+
+.trusted-track {
+  display: flex;
+  gap: 80px;
+  width: fit-content;
+}
+
+.trusted-item {
+  flex-shrink: 0;
+  width: 180px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: grayscale(100%) brightness(0.5);
+  transition: all 0.3s ease;
+}
+
+.trusted-item:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.1);
+}
+
+.trusted-item img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .trusted-by {
+    padding: 60px 0;
+  }
+
+  .trusted-title {
+    margin-bottom: 40px;
+  }
+
+  .trusted-track {
+    gap: 60px;
+  }
+
+  .trusted-item {
+    width: 140px;
+    height: 60px;
+  }
+}

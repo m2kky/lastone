@@ -126,16 +126,6 @@ const LecturesSection = () => {
   return (
     <section className="lectures-section">
       <div className="container">
-        <div className="lectures-header">
-          <h2 className="lectures-title">
-            <span className="title-line">Featured</span>
-            <span className="title-line">Lectures</span>
-          </h2>
-          <p className="lectures-subtitle">
-            Watch my latest speaking engagements and media appearances
-          </p>
-        </div>
-
         {/* Desktop Gallery Grid */}
         <div 
           ref={galleryRef}
