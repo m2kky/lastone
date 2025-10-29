@@ -12,6 +12,7 @@ import StickyCards, { StickyCardsDemo } from './components/StickyCards.jsx'
 import CustomCursor from './components/CustomCursor.jsx'
 import TrustedBy from './components/TrustedBy.jsx'
 import SpeakingSection from './components/SpeakingSection.jsx'
+import Newsletter from './components/Newsletter.jsx'
 import SocialBar from './components/SocialBar.jsx'
 import Footer from './components/Footer.jsx'
 
@@ -28,6 +29,7 @@ function App() {
       <TestimonialsSection />
       <LecturesSection />
       <SpeakingSection />
+      <Newsletter />
       <SocialBar />
       <Footer />
     </>
