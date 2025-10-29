@@ -9,6 +9,8 @@ import About from './components/About.jsx'
 import ServicesSection from './components/ServicesSection.jsx'
 import ProjectsSection from './components/ProjectsSection.jsx'
 import TestimonialsSection from './components/TestimonialsSection.jsx'
+import LecturesSection from './components/LecturesSection.jsx'
+import StickyCards, { StickyCardsDemo } from './components/StickyCards.jsx'
 
 function App() {
   return (
@@ -18,6 +20,9 @@ function App() {
       <ServicesSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <LecturesSection />
+      {/* StickyCards demo section; replace with <StickyCards cards={...} /> as needed */}
+      <StickyCardsDemo />
     </>
   )
 }
