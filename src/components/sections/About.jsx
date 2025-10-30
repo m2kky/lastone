@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { TextPlugin } from 'gsap/TextPlugin'
-import { motion, useScroll, useTransform } from 'framer-motion'
 
 function About() {
   const rootRef = useRef(null)
   const titleRef = useRef(null)
   const bodyRef = useRef(null)
-  const { scrollYProgress } = useScroll({ target: rootRef })
 
   useLayoutEffect(() => {
     gsap.registerPlugin(ScrollTrigger, TextPlugin)
@@ -61,9 +59,8 @@ function About() {
         scrollTrigger: {
           trigger: rootRef.current,
           start: 'top 80%',
-          end: '+=200%',
+          end: 'bottom 20%',
           scrub: 1,
-          pin: true,
         }
       })
 
@@ -153,7 +150,6 @@ function About() {
 
   return (
     <section ref={rootRef} className="about">
-      <SVGPath scrollYProgress={scrollYProgress} />
       <div className="about-stage">
         <div className="about-graphic">
           <img 
@@ -190,7 +186,16 @@ function About() {
           </div>
           
           <div className="about-cta">
-            <button className="btn btn-primary" type="button">
+            <button 
+              className="btn btn-primary" 
+              type="button"
+              onClick={() => {
+                const projectsSection = document.querySelector('.sticky-cards-section')
+                if (projectsSection) {
+                  projectsSection.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+              }}
+            >
               View Projects
               <span className="btn-arrow">
                 <svg viewBox="0 0 16 19" xmlns="http://www.w3.org/2000/svg">
@@ -210,46 +215,6 @@ function About() {
         </div>
       </div>
     </section>
-  )
-}
-
-function SVGPath({ scrollYProgress }) {
-  const pathLength = useTransform(scrollYProgress, [0, 1], [1, 0])
-
-  return (
-    <svg
-      width="100%"
-      height="100%"
-      viewBox="0 0 600 2000"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      preserveAspectRatio="xMidYMin meet"
-      style={{
-        position: 'absolute',
-        left: '50%',
-        top: 0,
-        transform: 'translateX(-50%)',
-        zIndex: 1,
-        opacity: 0.4,
-        pointerEvents: 'none',
-        width: 'min(600px, 100vw)',
-        height: '100%'
-      }}
-    >
-      <motion.path
-        d="M300 0 Q 450 200, 300 400 Q 150 600, 300 800 Q 450 1000, 300 1200 Q 150 1400, 300 1600 Q 400 1800, 300 2000"
-        stroke="#EB5E28"
-        strokeWidth="8"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        style={{
-          pathLength: 1,
-          strokeDasharray: 1,
-          strokeDashoffset: pathLength
-        }}
-      />
-    </svg>
   )
 }
 

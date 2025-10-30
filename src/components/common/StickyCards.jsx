@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import '../../styles/stickycards.css'
@@ -92,13 +93,13 @@ export default function StickyCards({ cards = [], className = '', tag, title, su
         </div>
       </div>
       <div className="sticky-footer">
-        <a href="/projects" className="view-all-btn">
+        <Link to="/projects" className="view-all-btn">
           View All Projects
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
-        </a>
+        </Link>
       </div>
     </section>
   )

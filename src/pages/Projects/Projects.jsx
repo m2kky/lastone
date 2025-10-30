@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-creative'
-import '../../styles/projects.css'
+import './projects.css'
 
 const projects = [
   {
@@ -446,13 +447,13 @@ export default function Projects() {
                     <span key={tag} className="project-tag">{tag}</span>
                   ))}
                 </div>
-                <a href="#" className="project-link">
+                <Link to={`/projects/${project.id === 1 ? 'ai-marketing-automation' : 'social-media-campaign'}`} className="project-link">
                   View Details
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
                     <polyline points="12 5 19 12 12 19"></polyline>
                   </svg>
-                </a>
+                </Link>
               </div>
             </motion.div>
           ))}

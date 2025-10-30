@@ -12,8 +12,9 @@ export default function CustomCursor() {
 
     const handleMouseOver = (e) => {
       const target = e.target
-      const isClickable = target.closest('a, button, [role="button"], .clickable')
-      setIsHovering(!!isClickable)
+      // فقط العناصر دي اللي المؤشر يتغير عليها
+      const isSpecialElement = target.closest('.project-card, .card-layer, .carousel-card, .more-project-card, .gallery-image, video, .clickable')
+      setIsHovering(!!isSpecialElement)
     }
 
     window.addEventListener('mousemove', updatePosition)
