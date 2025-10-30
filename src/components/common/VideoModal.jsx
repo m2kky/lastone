@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import './videoModal.css'
+import '../../styles/videoModal.css'
 
 export default function VideoModal({ isOpen, onClose, videoUrl }) {
   const modalRef = useRef(null)

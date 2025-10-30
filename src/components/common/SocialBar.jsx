@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import './socialbar.css'
+import '../../styles/socialbar.css'
 
 const ITEMS = [
   { 

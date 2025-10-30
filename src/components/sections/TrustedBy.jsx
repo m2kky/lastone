@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import './trustedby.css'
+import '../../styles/trustedby.css'
 
 export default function TrustedBy() {
   const scrollRef = useRef(null)

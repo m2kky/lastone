@@ -1,30 +1,37 @@
-# Portfolio Website - Muhammed Mekky
+# Portfolio Website
 
-Modern portfolio website showcasing AI-driven marketing automation services, projects, and professional journey.
+A modern, responsive portfolio website built with React and Vite.
 
-## 🚀 Tech Stack
+## Features
 
-- **React** 19.1.1
-- **Vite** 6.0.11
-- **React Router DOM** 7.1.3
-- **Framer Motion** 12.0.0
-- **GSAP** 3.12.7
-- **Swiper** 11.1.15
+- Responsive design
+- Smooth animations with GSAP
+- Modern UI components
+- Testimonials section with counter animations
+- Contact forms
+- Project showcase
 
-## 📋 Prerequisites
+## Technologies Used
 
-Before running this project, ensure you have the following installed:
+- React 18
+- Vite
+- GSAP (GreenSock Animation Platform)
+- CSS3
+- JavaScript ES6+
 
-- **Node.js** (v18.0.0 or higher)
-- **npm** (v9.0.0 or higher) or **yarn**
-- **Git**
+## Getting Started
 
-## 🛠️ Installation
+### Prerequisites
+
+- Node.js (version 14 or higher)
+- npm or yarn
+
+### Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/m2kky/portfolio.git
-cd portfolio-fri-17-10
+git clone <repository-url>
+cd lastone
 ```
 
 2. Install dependencies:
@@ -32,118 +39,41 @@ cd portfolio-fri-17-10
 npm install
 ```
 
-## 🏃 Running the Project
-
-### Development Mode
+3. Start the development server:
 ```bash
 npm run dev
 ```
-The application will start at `http://localhost:5173`
 
-### Build for Production
-```bash
-npm run build
-```
+4. Open your browser and navigate to `http://localhost:5173`
 
-### Preview Production Build
-```bash
-npm run preview
-```
-
-## 📁 Project Structure
+## Project Structure
 
 ```
-portfolio-fri-17-10/
-├── src/
-│   ├── components/          # React components
-│   │   ├── Hero.jsx
-│   │   ├── About.jsx
-│   │   ├── ServicesSection.jsx
-│   │   ├── StickyCards.jsx
-│   │   ├── TrustedBy.jsx
-│   │   ├── TestimonialsSection.jsx
-│   │   ├── LecturesSection.jsx
-│   │   ├── SpeakingSection.jsx
-│   │   ├── Newsletter.jsx
-│   │   ├── SocialBar.jsx
-│   │   ├── Footer.jsx
-│   │   ├── CustomCursor.jsx
-│   │   ├── Story.jsx
-│   │   ├── Projects.jsx
-│   │   ├── Contact.jsx
-│   │   └── FAQs.jsx
-│   ├── styles/              # CSS files
-│   ├── App.jsx              # Main app component
-│   ├── main.jsx             # Entry point
-│   └── index.css            # Global styles
-├── public/                  # Static assets
-├── package.json
-└── vite.config.js
-
+src/
+├── components/
+│   ├── common/          # Reusable components
+│   ├── layout/          # Layout components
+│   └── sections/        # Page sections
+├── pages/               # Page components
+├── styles/              # CSS files
+└── assets/              # Static assets
 ```
 
-## 🎨 Features
+## Available Scripts
 
-- **Animated Hero Section** with GSAP timeline animations
-- **Interactive About Section** with scroll-triggered SVG path animation
-- **Services Showcase** with accordion and hover effects
-- **Sticky Cards** with GSAP ScrollTrigger
-- **Projects Page** with Swiper carousel and filtering
-- **Story Page** with timeline and scroll animations
-- **Contact Page** with comprehensive form
-- **Custom Cursor** with hover interactions
-- **Responsive Design** for all screen sizes
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-## 🌐 Pages
+## Contributing
 
-- `/` - Home page with all sections
-- `/story` - Professional journey and timeline
-- `/projects` - Featured projects with filtering
-- `/contact` - Contact form and information
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 🎯 Key Dependencies
+## License
 
-```json
-{
-  "react": "^19.1.1",
-  "react-dom": "^19.1.1",
-  "react-router-dom": "^7.1.3",
-  "framer-motion": "^12.0.0",
-  "gsap": "^3.12.7",
-  "swiper": "^11.1.15",
-  "embla-carousel-react": "^8.5.2",
-  "embla-carousel-autoplay": "^8.5.2"
-}
-```
-
-## 🎨 Color Palette
-
-- Primary: `#EB5E28` (Orange)
-- Background: `#0b0b0b` (Black)
-- Text: `#efeeea` (Off-white)
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 🤝 Contributing
-
-This is a personal portfolio project. For suggestions or issues, please open an issue on GitHub.
-
-## 📄 License
-
-This project is private and proprietary.
-
-## 👤 Author
-
-**Muhammed Mekky**
-- Marketing Automation Strategist
-- Performance Trainer
-- AI & Automation Specialist
-
----
-
-Built with ❤️ using React + Vite
+This project is licensed under the MIT License.

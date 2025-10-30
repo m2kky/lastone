@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import './stickycards.css'
+import '../../styles/stickycards.css'
 
 // Simple sticky stacked-cards section using GSAP + ScrollTrigger
 // Props: cards: [{ id, image, alt, badge, title, subtitle }], className?: string

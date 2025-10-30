@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import './lectures.css'
+import '../../styles/lectures.css'
 
 const LecturesSection = () => {
   const [activeIndex, setActiveIndex] = useState(0)

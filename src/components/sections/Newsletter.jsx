@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import './newsletter.css';
+import '../../styles/newsletter.css';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');

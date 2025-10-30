@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { EffectCreative, Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import 'swiper/css/effect-creative'
-import './projects.css'
+import '../../styles/projects.css'
 
 const projects = [
   {

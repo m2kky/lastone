@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import VideoModal from './VideoModal.jsx'
-import './speaking.css'
+import VideoModal from '../common/VideoModal.jsx'
+import '../../styles/speaking.css'
 
 export default function SpeakingSection() {
   const sectionRef = useRef(null)
