@@ -131,7 +131,18 @@ function ServiceCard({ service, isOpen, onToggle, hoverImageRef, globalHideTimeo
     if (hoverImageRef.current) {
       const img = hoverImageRef.current
       img.style.display = 'block'
-      img.src = `/images/services/${service.id}.jpg`
+      
+      // Map service IDs to correct image names
+      const imageMap = {
+        'ai-automation': 'ai-automation.png',
+        'digital-marketing': 'digital-marketing.png',
+        'web-design': 'web-design.png',
+        'community': 'community-management.png',
+        'team-enablement': 'team-enablement.png',
+        'training-workshops': 'training-workshops.png'
+      }
+      
+      img.src = `/images/services/${imageMap[service.id] || service.id + '.png'}`
       
       // Position image using same logic as handleMouseMove
       const viewportWidth = window.innerWidth

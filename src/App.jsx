@@ -5,8 +5,12 @@ import './styles/about.css'
 import './styles/services.css'
 import './styles/testimonials.css'
 import './styles/blog.css'
+import './styles/socialbar.css'
 import CustomCursor from './components/common/CustomCursor.jsx'
+import ScrollToTop from './components/common/ScrollToTop.jsx'
+import SocialBar from './components/common/SocialBar.jsx'
 import Navbar from './components/layout/Navbar.jsx'
+import Footer from './components/layout/Footer.jsx'
 import Home from './pages/home/Home.jsx'
 import Story from './pages/story/Story.jsx'
 import Projects from './pages/projects/Projects.jsx'
@@ -22,6 +26,7 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -35,6 +40,8 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <SocialBar />
+      <Footer />
     </>
   )
 }

@@ -29,7 +29,7 @@ export default function StickyCards({ cards = [], className = '', tag, title, su
       scrollTrigger: {
         trigger: stackRef.current,
         start: 'top top',
-        end: `+=${window.innerHeight * (images.length - 1)}`,
+        end: `+=${window.innerHeight * (images.length - 1) * 1.5}`,
         pin: true,
         scrub: 0.6,
         pinSpacing: true,

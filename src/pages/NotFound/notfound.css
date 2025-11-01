@@ -3,17 +3,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+  background: #0b0b0b;
   padding: 2rem;
 }
 
 .notfound-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  max-width: 1200px;
+  max-width: 800px;
   width: 100%;
-  align-items: center;
+  text-align: center;
 }
 
 .notfound-content {
@@ -21,142 +18,103 @@
 }
 
 .notfound-number {
-  font-size: 8rem;
+  font-size: clamp(8rem, 15vw, 12rem);
   font-weight: 900;
-  background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #EB5E28;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 40px rgba(235, 94, 40, 0.3);
 }
 
 .notfound-title {
-  font-size: 2.5rem;
-  color: white;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #efeeea;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .notfound-description {
-  font-size: 1.1rem;
-  color: #888;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  color: rgba(239, 238, 234, 0.7);
+  margin-bottom: 3rem;
   line-height: 1.6;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .notfound-actions {
   display: flex;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .btn-primary, .btn-secondary {
-  padding: 12px 24px;
-  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 32px;
+  border-radius: 999px;
   text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   border: 2px solid transparent;
 }
 
 .btn-primary {
-  background: linear-gradient(45deg, #00d4ff, #0099cc);
-  color: white;
+  background: #EB5E28;
+  color: #000;
+  border-color: #EB5E28;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+  background: #efeeea;
+  color: #000;
+  border-color: #efeeea;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(235, 94, 40, 0.3);
 }
 
 .btn-secondary {
   background: transparent;
-  color: #00d4ff;
-  border-color: #00d4ff;
+  color: #efeeea;
+  border-color: #efeeea;
 }
 
 .btn-secondary:hover {
-  background: #00d4ff;
-  color: white;
-  transform: translateY(-2px);
+  background: #efeeea;
+  color: #0b0b0b;
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(239, 238, 234, 0.2);
 }
 
-.notfound-animation {
-  position: relative;
-  height: 400px;
-}
 
-.floating-elements {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.element {
-  position: absolute;
-  border-radius: 50%;
-  animation: float 6s ease-in-out infinite;
-}
-
-.element-1 {
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(45deg, #00d4ff, #0099cc);
-  top: 20%;
-  left: 20%;
-  animation-delay: 0s;
-}
-
-.element-2 {
-  width: 60px;
-  height: 60px;
-  background: linear-gradient(45deg, #ff6b6b, #ff4757);
-  top: 60%;
-  right: 30%;
-  animation-delay: 2s;
-}
-
-.element-3 {
-  width: 100px;
-  height: 100px;
-  background: linear-gradient(45deg, #ffa726, #ff9800);
-  bottom: 20%;
-  left: 50%;
-  animation-delay: 4s;
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(180deg);
-  }
-}
 
 @media (max-width: 768px) {
-  .notfound-container {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
+  .notfound-page {
+    padding: 1rem;
   }
   
-  .notfound-number {
-    font-size: 6rem;
-  }
-  
-  .notfound-title {
-    font-size: 2rem;
+  .notfound-description {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
   
   .notfound-actions {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
   
   .btn-primary, .btn-secondary {
-    width: 200px;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
   }
 }

@@ -115,7 +115,7 @@ export default function SpeakingSection() {
 
           <blockquote className="speaking-testimonial">
             <p>"Muhammed's session restructured our team's approach to automation — from concept to delivery. Practical, clear and actionable."</p>
-            <cite>— Lina A., Head of Growth</cite>
+            <cite>— Dr. Samar Mahmoud., Marketing Manager</cite>
           </blockquote>
         </div>
       </div>

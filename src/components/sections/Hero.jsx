@@ -11,7 +11,22 @@ function Hero() {
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       gsap.registerPlugin(TextPlugin)
+      
+      const hasSeenIntro = sessionStorage.getItem('heroAnimationSeen')
+      
+      if (hasSeenIntro) {
+        // Show final state immediately
+        gsap.set([sigRef.current, subtitleRef.current], { opacity: 1 })
+        if (sigRef.current) sigRef.current.src = '/images/sig2.png'
+        if (subtitleRef.current) subtitleRef.current.textContent = 'Create, Automate and grow'
+        if (wordsRef.current) {
+          const children = Array.from(wordsRef.current.querySelectorAll('[data-word]'))
+          gsap.set(children, { opacity: 0 })
+        }
+        return
+      }
 
+      // First visit - run animation
       // initial states
       gsap.set([sigRef.current, subtitleRef.current], { opacity: 0 })
       if (wordsRef.current) {
@@ -63,6 +78,7 @@ function Hero() {
       })
       tl.eventCallback('onComplete', () => {
         document.documentElement.style.overflow = prevOverflow || 'auto'
+        sessionStorage.setItem('heroAnimationSeen', 'true')
         console.timeEnd('hero-seq')
       })
     }, rootRef)

@@ -51,8 +51,16 @@ function About() {
       // Set initial states
       gsap.set(portrait, { opacity: 1, scale: 1 })
       gsap.set(titleWords, { opacity: 0, y: 20 })
-      gsap.set(bodyElements, { opacity: 0 })
+      gsap.set(bodyElements, { opacity: 0, y: 15 })
       gsap.set(ctaElements, { opacity: 0, y: 30 })
+      
+      // Set text content immediately for all body elements
+      if (bodyElements && bodyElements.length > 0) {
+        bodyElements.forEach((element) => {
+          const content = element.dataset.full || ''
+          element.textContent = content
+        })
+      }
 
       // Create scroll trigger timeline
       const tl = gsap.timeline({
@@ -88,23 +96,17 @@ function About() {
         }
       }
 
-      // Phase 3: Body paragraphs with typing effect (30-80%)
+      // Phase 3: Body paragraphs with simple fade-in (30-80%)
       if (bodyElements && bodyElements.length > 0) {
         bodyElements.forEach((element, index) => {
           const content = element.dataset.full || ''
+          element.textContent = content // Set text immediately
           
           tl.to(element, {
             opacity: 1,
-            duration: 0.1
-          }, `body-${index}`)
-          
-          tl.to(element, {
-            text: content,
-            duration: 0.6,
-            ease: 'none',
-            onStart: () => {
-              element.textContent = ''
-            }
+            y: 0,
+            duration: 0.4,
+            ease: 'power2.out'
           }, `body-${index}`)
         })
       }
@@ -128,18 +130,12 @@ function About() {
         if (bodyElements && bodyElements.length > 0) {
           bodyElements.forEach((element, index) => {
             const content = element.dataset.full || ''
-            gsap.to(element, { opacity: 1, duration: 0.3, delay: index * 0.2 })
-            gsap.to(element, { 
-              text: content, 
-              duration: 0.8, 
-              ease: 'none',
-              delay: index * 0.2 + 0.3,
-              onStart: () => { element.textContent = '' }
-            })
+            element.textContent = content // Set text immediately
+            gsap.to(element, { opacity: 1, y: 0, duration: 0.4, delay: index * 0.15 })
           })
         }
         if (ctaElements && ctaElements.length > 0) {
-          gsap.to(ctaElements, { opacity: 1, y: 0, stagger: 0.1, duration: 0.3, delay: 1.5 })
+          gsap.to(ctaElements, { opacity: 1, y: 0, stagger: 0.1, duration: 0.3, delay: 1.2 })
         }
       }, 1000)
 

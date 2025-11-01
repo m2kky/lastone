@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { timelineData, timelineSummary } from '../../data/timelineData'
 import './story.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -93,48 +94,39 @@ function TimelineSection() {
     return () => ScrollTrigger.getAll().forEach(t => t.kill())
   }, [])
 
-  const events = [
-    {
-      year: '2017',
-      title: 'THE SPARK',
-      location: 'Cairo, Egypt',
-      description: 'Started experimenting with marketing automation tools, discovering the power of AI-driven workflows that would change everything.',
-      image: '/images/story/2017.jpg',
-      side: 'left'
-    },
-    {
-      year: '2019',
-      title: 'FIRST BREAKTHROUGH',
-      location: 'Remote',
-      description: 'Delivered first major automation project, saving a startup 40+ hours per week. The moment I realized this was bigger than just efficiency.',
-      image: '/images/story/2019.jpg',
-      side: 'right'
-    },
-    {
-      year: '2021',
-      title: 'SCALING IMPACT',
-      location: 'Multiple Cities',
-      description: 'Launched workshop series, training 500+ professionals in AI-driven marketing systems. From individual projects to mass education.',
-      image: '/images/story/2021.jpg',
-      side: 'left'
-    },
-    {
-      year: '2023',
-      title: 'GLOBAL REACH',
-      location: 'Worldwide',
-      description: 'Worked with 50+ clients across 15 countries, delivering transformative marketing solutions that scaled businesses exponentially.',
-      image: '/images/story/2023.jpg',
-      side: 'right'
-    },
-    {
-      year: '2024',
-      title: 'THE FUTURE',
-      location: 'Everywhere',
-      description: 'Building the next generation of AI-powered marketing systems, one breakthrough at a time. The journey continues.',
-      image: '/images/story/2024.jpg',
-      side: 'left'
+  // Show all timeline data with real images
+  const getImagePath = (title) => {
+    const imageMap = {
+      'Born': 'BORN.png',
+      'Marketing Representative': 'Content Creator.png',
+      'Digital Marketing Trainee': 'Digital Marketing Trainee.png',
+      'Diploma in Commerce': 'Diploma in Commerce.png',
+      'Content Creator (Philogimia)': 'Content Creator.png',
+      'Social Media Specialist (Curva Sportswear)': 'Social Media Specialist.png',
+      'Media Buyer (Center Eltekya)': 'Media Buyer (Center Eltekya.png',
+      'Media Buyer (Asl-Alhaloub)': 'Media Buyer (Asl-Alhaloub.png',
+      'Content Creator & Planner (The Glocal)': 'Content Creator & Planner (The Glocal.png',
+      'Marketing Operations Manager (Scarpe)': 'Marketing Operations Manager (Scarpe.png',
+      'Personal Branding Content Creator (Qudraat – Dr. Muhammed Harby)': 'Personal Branding Content Creator.png',
+      'Shopify Developer (Forbed)': 'Shopify Developer.png',
+      'Content Strategy & Media Buyer (Cabalo)': 'Content Strategy & Media Buyer.png',
+      'AI Specialist (Qudraat)': 'AI Specialist (Qudraat.png',
+      'Automation Specialist (Ausrah)': 'Automation Specialist (Ausrah.png',
+      'Social Media Specialist (Qudraat)': 'Social Media Specialist (Qudraat.png',
+      'Event Planner (Youth Qudraat)': 'Event Planner (Youth Qudraat.png',
+      'AI & Automation Internship (Qudraat)': 'AI & Automation Internship (Qudraat.png'
     }
-  ]
+    return imageMap[title] || 'Content Creator.png'
+  }
+
+  const events = timelineData.map((item, index) => ({
+    year: item.date.split(' ')[1] || item.date.split(' ')[0],
+    title: item.title.toUpperCase(),
+    location: item.location,
+    description: item.description,
+    image: `/images/Timeline/${getImagePath(item.title)}`,
+    side: index % 2 === 0 ? 'left' : 'right'
+  }))
 
   return (
     <div ref={timelineRef} className="interactive-timeline">
@@ -172,7 +164,7 @@ function TimelineSection() {
       
       {events.map((event, index) => (
         <motion.div
-          key={event.year}
+          key={`${event.year}-${index}`}
           className={`timeline-event ${event.side}`}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -228,15 +220,15 @@ export default function Story() {
     
     textSections.forEach((section) => {
       gsap.fromTo(section,
-        { filter: 'blur(10px)', opacity: 0.3 },
+        { filter: 'blur(5px)', opacity: 0.5 },
         {
           filter: 'blur(0px)',
           opacity: 1,
           scrollTrigger: {
             trigger: section,
-            start: 'top 80%',
-            end: 'top 20%',
-            scrub: 1,
+            start: 'top 70%',
+            end: 'top 40%',
+            scrub: 0.5,
           }
         }
       )
@@ -244,13 +236,13 @@ export default function Story() {
       gsap.fromTo(section,
         { filter: 'blur(0px)', opacity: 1 },
         {
-          filter: 'blur(10px)',
-          opacity: 0.3,
+          filter: 'blur(5px)',
+          opacity: 0.5,
           scrollTrigger: {
             trigger: section,
-            start: 'bottom 80%',
-            end: 'bottom 20%',
-            scrub: 1,
+            start: 'bottom 60%',
+            end: 'bottom 30%',
+            scrub: 0.5,
           }
         }
       )

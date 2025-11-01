@@ -13,31 +13,22 @@ const NotFound = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="notfound-number">404</div>
-          <h1 className="notfound-title">الصفحة غير موجودة</h1>
+          <h1 className="notfound-title">PAGE NOT FOUND</h1>
           <p className="notfound-description">
-            عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها إلى مكان آخر
+            The page you're looking for doesn't exist or has been moved to another location.
           </p>
           
           <div className="notfound-actions">
             <Link to="/" className="btn-primary">
-              العودة للرئيسية
+              Back to Home
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
             </Link>
             <Link to="/projects" className="btn-secondary">
-              تصفح المشاريع
+              View Projects
             </Link>
-          </div>
-        </motion.div>
-        
-        <motion.div
-          className="notfound-animation"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <div className="floating-elements">
-            <div className="element element-1"></div>
-            <div className="element element-2"></div>
-            <div className="element element-3"></div>
           </div>
         </motion.div>
       </div>
