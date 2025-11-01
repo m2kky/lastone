@@ -1,7 +1,8 @@
 import { useEffect, useRef } from 'react'
- import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { getFeaturedProjects } from '../../data/projects.js'
 import '../../styles/stickycards.css'
 
 // Simple sticky stacked-cards section using GSAP + ScrollTrigger
@@ -73,7 +74,8 @@ export default function StickyCards({ cards = [], className = '', tag, title, su
       <div className="sticky-cards" ref={stackRef}>
         <div className="card-stack">
           {cards.map((card, i) => (
-            <div
+            <Link
+              to={`/projects/${card.id}`}
               key={card.id ?? i}
               className="card-layer"
               ref={el => (layerRefs.current[i] = el)}
@@ -88,7 +90,7 @@ export default function StickyCards({ cards = [], className = '', tag, title, su
                 {card.title && <h3 className="card-title">{card.title}</h3>}
                 {card.subtitle && <p className="card-subtitle">{card.subtitle}</p>}
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
@@ -105,16 +107,10 @@ export default function StickyCards({ cards = [], className = '', tag, title, su
   )
 }
 
-// Demo dataset for quick testing. Import and render <StickyCardsDemo /> if needed.
+// Demo dataset using real projects data
 export function StickyCardsDemo() {
-  const demoCards = [
-    { id: 1, image: '/images/lectures/automation.png', title: 'Marketing Campaigns', badge: 'Campaigns', subtitle: 'Strategic campaigns that drive results' },
-    { id: 2, image: '/images/lectures/notion.png', title: 'Social Media', badge: 'Social Media Management', subtitle: 'Building engaged communities online' },
-    { id: 3, image: '/images/lectures/brandbuild.png', title: 'Brand Identity', badge: 'Branding', subtitle: 'Creating memorable brand experiences' },
-    { id: 4, image: '/images/lectures/powerofprompts.png', title: 'AI Solutions', badge: 'AI & Automation', subtitle: 'Intelligent automation for modern workflows' },
-    { id: 5, image: '/images/lectures/promptology.png', title: 'Team Training', badge: 'Training', subtitle: 'Empowering teams with practical skills' },
-  ]
-  return <StickyCards cards={demoCards} title="Projects" />
+  const featuredProjects = getFeaturedProjects()
+  return <StickyCards cards={featuredProjects} title="Featured Projects" />
 }
 
 

@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import { motion, useScroll, useSpring, useInView, useMotionValue, useTransform, animate } from 'framer-motion'
 import { useState, useEffect, useRef } from 'react'
+import { projects } from '../../data/projects.js'
 import './projectdetail.css'
 
 function Counter({ value, duration = 2 }) {
@@ -30,64 +31,7 @@ function Counter({ value, duration = 2 }) {
   return <motion.span ref={ref}>{rounded}</motion.span>
 }
 
-// Sample project data - replace with your actual data
-const projectsData = {
-  'ai-marketing-automation': {
-    title: 'AI Marketing Automation',
-    year: '2024',
-    category: 'AI & Automation',
-    heroImage: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1600&q=80',
-    description: 'A comprehensive AI-powered marketing automation system that transformed how the client manages their digital campaigns, saving 40+ hours per week while increasing conversion rates by 150%.',
-    client: 'Tech Startup Inc.',
-    services: ['AI Integration', 'Workflow Automation', 'Marketing Strategy'],
-    duration: '3 months',
-    link: 'https://example.com',
-    challenge: 'The client was struggling with manual marketing processes that consumed excessive time and resources. Their team spent over 40 hours weekly on repetitive tasks like email campaigns, social media posting, and lead nurturing. This inefficiency prevented them from scaling their marketing efforts and focusing on strategic initiatives.',
-    solution: 'We implemented a comprehensive AI-driven automation system that streamlined their entire marketing workflow. The solution included automated email sequences, intelligent lead scoring, social media scheduling with AI-generated content suggestions, and real-time analytics dashboards. We integrated multiple tools into a unified system that required minimal manual intervention.',
-    images: [
-      'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1600&q=80',
-      'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1600&q=80',
-      'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1600&q=80'
-    ],
-    results: [
-      { label: 'Time Saved', value: '40+ hrs/week' },
-      { label: 'Conversion Rate', value: '+150%' },
-      { label: 'ROI Increase', value: '+200%' },
-      { label: 'Lead Quality', value: '+85%' }
-    ],
-    nextProject: {
-      slug: 'social-media-campaign',
-      title: 'Social Media Campaign'
-    }
-  },
-  'social-media-campaign': {
-    title: 'Social Media Campaign',
-    year: '2024',
-    category: 'Digital Marketing',
-    heroImage: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1600&q=80',
-    description: 'A viral social media campaign that reached 2M+ impressions in 30 days, driving unprecedented engagement and brand awareness for a growing e-commerce brand.',
-    client: 'Fashion Brand Co.',
-    services: ['Social Media Strategy', 'Content Creation', 'Community Management'],
-    duration: '2 months',
-    link: null,
-    challenge: 'The brand had minimal social media presence and struggled to stand out in a saturated market. Their content was inconsistent, engagement was low, and they lacked a clear strategy to connect with their target audience.',
-    solution: 'We developed a data-driven social media strategy focused on authentic storytelling and user-generated content. Created a content calendar with diverse formats (Reels, Stories, Posts), implemented influencer partnerships, and launched interactive campaigns that encouraged audience participation.',
-    images: [
-      'https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1600&q=80',
-      'https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?w=1600&q=80'
-    ],
-    results: [
-      { label: 'Impressions', value: '2M+' },
-      { label: 'Engagement Rate', value: '+320%' },
-      { label: 'Followers Growth', value: '+450%' },
-      { label: 'Sales Increase', value: '+180%' }
-    ],
-    nextProject: {
-      slug: 'ai-marketing-automation',
-      title: 'AI Marketing Automation'
-    }
-  }
-}
+
 
 export default function ProjectDetail() {
   const { slug } = useParams()
@@ -100,19 +44,10 @@ export default function ProjectDetail() {
     restDelta: 0.001
   })
 
-  const allProjects = [
-    { id: 1, slug: 'ai-marketing-automation', title: 'AI Marketing Automation', category: 'AI & Automation', image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&q=80' },
-    { id: 2, slug: 'social-media-campaign', title: 'Social Media Campaign', category: 'Digital Marketing', image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=80' },
-    { id: 3, slug: 'ecommerce-platform', title: 'E-Commerce Platform', category: 'Web Design', image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
-    { id: 4, slug: 'discord-community', title: 'Discord Community', category: 'Community Management', image: 'https://images.unsplash.com/photo-1614680376593-902f74cf0d41?w=600&q=80' },
-    { id: 5, slug: 'team-workflow', title: 'Team Workflow System', category: 'Team Enablement', image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80' },
-    { id: 6, slug: 'ai-workshop', title: 'AI Workshop Series', category: 'Training & Workshops', image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80' }
-  ]
-
-  const otherProjects = allProjects.filter(p => p.slug !== slug)
+  const otherProjects = projects.filter(p => p.id !== slug)
 
   useEffect(() => {
-    const projectData = projectsData[slug]
+    const projectData = projects.find(p => p.id === slug)
     if (projectData) {
       setProject(projectData)
     }
@@ -155,7 +90,7 @@ export default function ProjectDetail() {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2 }}
         >
-          <img src={project.heroImage} alt={project.title} />
+          <img src={project.image} alt={project.title} />
         </motion.div>
       </section>
 
@@ -169,7 +104,7 @@ export default function ProjectDetail() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p>{project.description}</p>
+            <p>{project.shortDescription}</p>
           </motion.div>
 
           <motion.div
@@ -237,18 +172,15 @@ export default function ProjectDetail() {
 
       {/* Visual Gallery */}
       <section className="project-gallery">
-        {project.images.map((image, index) => (
-          <motion.div
-            key={index}
-            className="gallery-image"
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-100px' }}
-            transition={{ duration: 0.8, delay: index * 0.1 }}
-          >
-            <img src={image} alt={`${project.title} - Image ${index + 1}`} />
-          </motion.div>
-        ))}
+        <motion.div
+          className="gallery-image"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <img src={project.image} alt={project.title} />
+        </motion.div>
       </section>
 
       {/* Results */}
@@ -273,7 +205,7 @@ export default function ProjectDetail() {
           significantly exceeding initial project goals and establishing new benchmarks for success.
         </motion.p>
         <div className="results-grid">
-          {project.results.map((result, index) => (
+          {project.metrics.map((result, index) => (
             <motion.div
               key={index}
               className="result-item"
@@ -322,7 +254,7 @@ export default function ProjectDetail() {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Link to={`/projects/${proj.slug}`} className="more-project-link">
+              <Link to={`/projects/${proj.id}`} className="more-project-link">
                 <div className="more-project-image">
                   <img src={proj.image} alt={proj.title} />
                 </div>

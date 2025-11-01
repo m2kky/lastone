@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import '../../styles/lectures.css'
 
 const LecturesSection = () => {
+  const navigate = useNavigate()
   const [activeIndex, setActiveIndex] = useState(0)
   const [isHovered, setIsHovered] = useState(null)
   const [isScrolled, setIsScrolled] = useState(false)
@@ -10,7 +12,7 @@ const LecturesSection = () => {
 
   const lectures = [
     {
-      id: 1,
+      id: "ai-automation-kickstart",
       title: "Automate Your Life Workshop",
       description:
         "A practical workshop introducing youth to no-code automation. Use tools like Make.com to streamline daily tasks, connect apps, and build powerful workflows without code.",
@@ -18,7 +20,7 @@ const LecturesSection = () => {
       hoverImage: "/images/lectures/automation.png"
     },
     {
-      id: 2,
+      id: "notion-productivity",
       title: "Introduction to Notion",
       description:
         "Unlock productivity with Notion. Learn pages, databases, and building a personal dashboard. Explore using ChatGPT to generate structured content for your workspace.",
@@ -26,7 +28,7 @@ const LecturesSection = () => {
       hoverImage: "/images/lectures/notion.png"
     },
     {
-      id: 3,
+      id: "build-your-brand-chatgpt",
       title: "Build Your Brand Using ChatGPT",
       description:
         "Leverage ChatGPT for personal and professional branding. Hands-on training for content creation, social media strategy, and consistent brand voice with AI.",
@@ -34,7 +36,7 @@ const LecturesSection = () => {
       hoverImage: "/images/lectures/brandbuild.png"
     },
     {
-      id: 4,
+      id: "power-of-prompts",
       title: "The Power of Prompts: From Prompt to Profit",
       description:
         "Deep-dive into prompt engineering. Techniques and frameworks to craft effective prompts that generate valuable, accurate, and profitable outcomes from generative AI.",
@@ -42,7 +44,7 @@ const LecturesSection = () => {
       hoverImage: "/images/lectures/powerofprompts.png"
     },
     {
-      id: 5,
+      id: "promptology-unlocked",
       title: "Promptology: Models, Methods and Use-Cases",
       description:
         "Write effective prompts and understand AI model types. Learn Prompt Engineering basics, Flagship LLMs, Thinking Models, Research Agents, and when to use each.",
@@ -50,7 +52,7 @@ const LecturesSection = () => {
       hoverImage: "/images/lectures/promptology.png"
     },
     {
-      id: 6,
+      id: "portfolio-that-converts",
       title: "Portfolio That Converts",
       description:
         "A comprehensive guide to a standout professional portfolio: selecting best work, structuring projects, visual layout, and compelling case studies that attract clients.",
@@ -65,6 +67,10 @@ const LecturesSection = () => {
 
   const handleMouseLeave = () => {
     setIsHovered(null)
+  }
+
+  const handleLectureClick = (lectureId) => {
+    navigate(`/lectures/${lectureId}`)
   }
 
   // Handle scroll for desktop gallery
@@ -139,6 +145,8 @@ const LecturesSection = () => {
                 className={`gallery-item ${isHovered === index ? 'hovered' : ''}`}
                 onMouseEnter={() => handleMouseEnter(index)}
                 onMouseLeave={handleMouseLeave}
+                onClick={() => handleLectureClick(lecture.id)}
+                style={{ cursor: 'pointer' }}
               >
                 <div className="gallery-image">
                   <img
@@ -179,6 +187,8 @@ const LecturesSection = () => {
                 className={`gallery-item ${isHovered === index + 3 ? 'hovered' : ''}`}
                 onMouseEnter={() => handleMouseEnter(index + 3)}
                 onMouseLeave={handleMouseLeave}
+                onClick={() => handleLectureClick(lecture.id)}
+                style={{ cursor: 'pointer' }}
               >
                 <div className="gallery-image">
                   <img
@@ -221,7 +231,12 @@ const LecturesSection = () => {
             style={{ transform: `translateX(-${activeIndex * 85}%)` }}
           >
             {lectures.map((lecture, index) => (
-              <div key={lecture.id} className="carousel-item">
+              <div 
+                key={lecture.id} 
+                className="carousel-item"
+                onClick={() => handleLectureClick(lecture.id)}
+                style={{ cursor: 'pointer' }}
+              >
                 <div className="carousel-image">
                   <img
                     src={lecture.image}

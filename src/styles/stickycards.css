@@ -61,6 +61,14 @@
 .card-layer {
   position: absolute;
   inset: 0;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+
+.card-layer:hover {
+  transform: scale(1.02);
 }
 
 .card-image {

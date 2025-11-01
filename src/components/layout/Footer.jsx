@@ -20,16 +20,16 @@ export default function Footer() {
 
           <div className="footer-links">
             <h4>Connect</h4>
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a href="https://www.linkedin.com/in/muhammed-mekky" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://github.com/muhammed-mekky" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://twitter.com/muhammed_mekky" target="_blank" rel="noopener noreferrer">Twitter</a>
+            <a href="https://www.instagram.com/muhammed.mekky" target="_blank" rel="noopener noreferrer">Instagram</a>
           </div>
 
           <div className="footer-contact">
             <h4>Contact</h4>
-            <a href="mailto:hello@mekky.com">hello@mekky.com</a>
-            <a href="tel:+201234567890">+20 123 456 7890</a>
+            <a href="mailto:contact@muhammedmekky.com">contact@muhammedmekky.com</a>
+            <a href="tel:+201012345678">+20 101 234 5678</a>
           </div>
         </div>
 

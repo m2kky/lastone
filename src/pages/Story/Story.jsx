@@ -138,6 +138,34 @@ function TimelineSection() {
 
   return (
     <div ref={timelineRef} className="interactive-timeline">
+      <motion.div 
+        className="timeline-header"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        transition={{ duration: 0.8 }}
+      >
+        <motion.h2 
+          className="timeline-headline"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0 }}
+        >
+          Every chapter <span className="timeline-highlight">left a mark</span>.
+        </motion.h2>
+        <div className="timeline-divider"></div>
+        <motion.p 
+          className="timeline-subtitle"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          Here's how it all unfolded — one spark at a time.
+        </motion.p>
+      </motion.div>
+      
       <div className="timeline-line-wrapper">
         <div ref={lineRef} className="timeline-line" />
       </div>
@@ -180,33 +208,48 @@ function TimelineSection() {
 export default function Story() {
   const containerRef = useRef(null)
   const heroRef = useRef(null)
+  const storyContentRef = useRef(null)
   
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   })
 
+  const { scrollYProgress: storyScrollProgress } = useScroll({
+    target: storyContentRef,
+    offset: ["start end", "end start"]
+  })
+
   const heroScale = useTransform(scrollYProgress, [0, 0.2], [1, 1.1])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0])
 
   useEffect(() => {
-    const paragraphs = document.querySelectorAll('.story-text')
+    const textSections = document.querySelectorAll('.story-text-section')
     
-    paragraphs.forEach((p) => {
-      const words = p.textContent.split(' ')
-      p.innerHTML = words.map(word => `<span class="word">${word}</span>`).join(' ')
-      
-      const wordElements = p.querySelectorAll('.word')
-      
-      gsap.fromTo(wordElements,
-        { opacity: 0.3 },
+    textSections.forEach((section) => {
+      gsap.fromTo(section,
+        { filter: 'blur(10px)', opacity: 0.3 },
         {
+          filter: 'blur(0px)',
           opacity: 1,
-          stagger: 0.05,
           scrollTrigger: {
-            trigger: p,
+            trigger: section,
             start: 'top 80%',
-            end: 'bottom 60%',
+            end: 'top 20%',
+            scrub: 1,
+          }
+        }
+      )
+      
+      gsap.fromTo(section,
+        { filter: 'blur(0px)', opacity: 1 },
+        {
+          filter: 'blur(10px)',
+          opacity: 0.3,
+          scrollTrigger: {
+            trigger: section,
+            start: 'bottom 80%',
+            end: 'bottom 20%',
             scrub: 1,
           }
         }
@@ -232,82 +275,81 @@ export default function Story() {
         </div>
       </motion.section>
 
-      <section className="story-content">
+      <section ref={storyContentRef} className="story-content">
+        <div className="story-parallax-container">
+          <div className="story-fixed-image">
+            <img src="/images/story/main-story.jpg" alt="Mekky's Journey" />
+          </div>
+          
+          <div className="story-text-sections">
+            <div className="story-text-section">
+              <h2 className="story-chapter-title">THE BEGINNING</h2>
+              <p className="story-text">
+                It all started with a frustration.
+              </p>
+              <p className="story-text">
+                Marketing felt broken — repetitive, time-consuming, and soulless. I wanted to make marketing smarter, faster, and, most importantly, more human.
+              </p>
+              <p className="story-text">
+                Back then, I was just another marketer juggling endless campaigns and spreadsheets. But curiosity pushed me deeper. What if technology could handle the grind so people could focus on creativity and connection?
+              </p>
+              <p className="story-text">
+                That question became an obsession — late nights, failed experiments, and endless cups of coffee — until I started building automation systems that worked with people, not instead of them.
+              </p>
+            </div>
+
+            <div className="story-text-section">
+              <h2 className="story-chapter-title">THE BREAKTHROUGH</h2>
+              <p className="story-text">
+                The turning point came when I realized automation isn't just about efficiency — it's about empowerment.
+              </p>
+              <p className="story-text">
+                When marketers and teams stopped wasting time on repetitive work, something amazing happened: creativity flourished. Strategy got sharper. Results got bigger.
+              </p>
+              <p className="story-text">
+                That's when I started sharing what I'd learned — first with small teams, then startups, then major companies. Each project taught me something new, each workshop opened new perspectives.
+              </p>
+              <p className="story-text">
+                Today, I help entrepreneurs, marketers, and organizations design systems that think, freeing them to do what humans do best — imagine, create, and grow.
+              </p>
+            </div>
+
+            <div className="story-text-section">
+              <h2 className="story-chapter-title">THE MISSION</h2>
+              <p className="story-text">
+                My work now is about scaling that impact.
+              </p>
+              <p className="story-text">
+                I train people and build frameworks that merge human creativity with intelligent automation — helping teams move from chaos to clarity, from manual to meaningful.
+              </p>
+              <p className="story-text">
+                Whether I'm working with a founder on their first funnel or training a corporate team on marketing automation strategy, my mission stays the same:
+              </p>
+              <p className="story-text">
+                to make marketing feel less mechanical and more magical.
+              </p>
+            </div>
+
+            <div className="story-text-section">
+              <h2 className="story-chapter-title">THE FUTURE</h2>
+              <p className="story-text">
+                I believe the next generation of marketing won't be about more tools — it'll be about better humans using better systems.
+              </p>
+              <p className="story-text">
+                And I'm here to help shape that shift — one workshop, one strategy, one bold idea at a time.
+              </p>
+            </div>
+          </div>
+        </div>
+        
         <div className="story-grid">
-          <div className="story-chapter">
-            <div className="story-text-block">
-              <h2 className="story-chapter-title">The Beginning</h2>
-              <p className="story-text">
-                It started with a simple question: How can we make marketing smarter, faster, and more human? 
-                Seven years ago, I was just another marketer drowning in repetitive tasks, wondering if there was a better way.
-              </p>
-              <p className="story-text">
-                That curiosity led me down a rabbit hole of automation tools, AI experiments, and countless late nights 
-                building systems that didn't exist yet. I wasn't trying to replace humans—I was trying to free them.
-              </p>
-            </div>
-            <motion.div 
-              className="story-image-block"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <img src="/images/story/chapter1.jpg" alt="Early days" />
-            </motion.div>
-          </div>
-
-          <div className="story-chapter reverse">
-            <motion.div 
-              className="story-image-block"
-              initial={{ opacity: 0, y: 100 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.8 }}
-            >
-              <img src="/images/story/chapter2.jpg" alt="Growth phase" />
-            </motion.div>
-            <div className="story-text-block">
-              <h2 className="story-chapter-title">The Breakthrough</h2>
-              <p className="story-text">
-                The turning point came when I realized automation wasn't just about efficiency—it was about empowerment. 
-                Teams could focus on strategy while systems handled execution. Creativity flourished when repetition disappeared.
-              </p>
-              <p className="story-text">
-                I started sharing what I learned. First with small teams, then startups, then corporations. 
-                Each workshop taught me something new. Each project pushed the boundaries of what was possible.
-              </p>
-            </div>
-          </div>
-
-          <div className="story-stats">
-            <div className="story-stat">
-              <span className="story-stat-value">7+</span>
-              <span className="story-stat-label">Years Experience</span>
-            </div>
-            <div className="story-stat">
-              <span className="story-stat-value">84+</span>
-              <span className="story-stat-label">Projects Delivered</span>
-            </div>
-            <div className="story-stat">
-              <span className="story-stat-value">50+</span>
-              <span className="story-stat-label">Clients Worldwide</span>
-            </div>
-            <div className="story-stat">
-              <span className="story-stat-value">3,000+</span>
-              <span className="story-stat-label">People Trained</span>
-            </div>
-          </div>
 
           {/* Timeline Section */}
           <TimelineSection />
         </div>
 
-        {/* Let's Keep Connected */}
-        <KeepConnectedForm />
-
         <div className="story-cta">
-          <h2 className="story-cta-title">Let's Build Something Together</h2>
+          <h2 className="story-cta-title">You’ve seen the story</h2>
           <p className="story-cta-text">Ready to transform your marketing with AI-driven systems?</p>
           <a href="/contact" className="story-cta-button">
             Get In Touch
@@ -317,6 +359,9 @@ export default function Story() {
             </svg>
           </a>
         </div>
+
+        {/* Let's Keep Connected */}
+        <KeepConnectedForm />
       </section>
     </div>
   )

@@ -235,6 +235,37 @@
   border-color: #fff;
 }
 
+.contact-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.contact-submit-btn:disabled:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.form-message {
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.form-message.success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 2px solid rgba(34, 197, 94, 0.3);
+  color: #22c55e;
+}
+
+.form-message.error {
+  background: rgba(239, 68, 68, 0.1);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+}
+
 @media (max-width: 1024px) {
   .contact-container {
     grid-template-columns: 1fr;

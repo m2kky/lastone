@@ -1,0 +1,234 @@
+{
+  id: "mo7a-art",
+  title: "Mo7a Art",
+  shortDescription: "A digital art portfolio for painter Mohammed Moustafa Abdeldaiem, designed to reflect his artistic identity through a minimal yet expressive interface.",
+  client: "Mohammed Moustafa Abdeldaiem",
+  year: 2024,
+  duration: "14 days",
+  owner: "Muhammed Moustafa",
+  services: ["Web Design", "UI/UX", "Portfolio Presentation"],
+  link: "https://artmo7.godaddysites.com/",
+  tech: ["GoDaddy Builder", "HTML", "CSS", "Responsive Layout"],
+  challenge: "To translate a deeply personal artistic vision into a digital experience that preserves the human, handcrafted feel while maintaining a modern and accessible interface.",
+  solution: "Designed a clean, image-first layout that lets artworks speak for themselves. Built a muted color palette inspired by the artist’s paintings and implemented smooth scrolling with typographic balance to keep the experience immersive and calm.",
+  results: "The final website became both a portfolio and an online gallery, improving the artist’s professional presentation and making it easier for audiences and potential clients to connect and explore his work.",
+  metrics: [
+    { label: "Development Time", value: "14 days" },
+    { label: "Platform", value: "GoDaddy Builder" },
+    { label: "Objective", value: "Online portfolio for fine art presentation" }
+  ],
+  summary: "A digital canvas where code and creativity converge — this project successfully blended artistic storytelling with functional web design."
+}
+
+{
+  id: "astra-store",
+  title: "Astra Store",
+  shortDescription: "A conceptual Shopify store built for gamer accessories, designed to capture the bold and dynamic energy of the Saudi gaming community.",
+  client: "Own Concept Project",
+  year: 2024,
+  duration: "19 days",
+  owner: "Muhammed Mekky",
+  services: ["E-commerce Development", "UI/UX Design", "Shopify Customization"],
+  link: "https://matrix-headphone.myshopify.com/",
+  tech: ["Shopify (Liquid)", "HTML", "CSS", "Responsive Design", "Basic SEO"],
+  challenge: "To create an e-commerce experience that resonates with young, tech-savvy gamers while maintaining simplicity in navigation and high-speed performance across devices.",
+  solution: "Developed a bold, neon-accented interface inspired by gaming culture. Focused on mobile-first design with visually striking product displays, intuitive navigation, and optimized product filtering for quick access. Integrated a clean product card layout to enhance engagement and usability.",
+  results: "The conceptual store delivered a visually engaging and performance-optimized experience that effectively demonstrates how a strong visual identity can drive user interaction and conversion in niche markets.",
+  metrics: [
+    { label: "Development Time", value: "19 days" },
+    { label: "Design Goal", value: "High-impact visual e-commerce for gamers" },
+    { label: "Focus", value: "Mobile-first user experience" }
+  ],
+  summary: "A creative e-commerce concept merging gaming aesthetics with user-centered design, showing how visual storytelling and usability can coexist in online retail."
+}
+
+{
+  id: "chef-ahmed",
+  title: "Chef Ahmed",
+  shortDescription: "A professional portfolio website for Chef Ahmed Tarek showcasing his culinary expertise, work experience, and signature dishes through a visually appetizing design.",
+  client: "Ahmed Tarek",
+  year: 2024,
+  duration: "4 days",
+  owner: "Ahmed Tarek",
+  services: ["Portfolio Website", "Personal Branding", "Content Design"],
+  link: "https://chef-ahmedtarek.godaddysites.com/",
+  tech: ["GoDaddy Builder", "HTML", "CSS", "Responsive Layout"],
+  challenge: "To translate a chef’s professional journey and passion for food into an elegant online presence that feels personal and appetizing without overwhelming the viewer.",
+  solution: "Designed a photo-driven interface featuring a grid of culinary imagery, professional biography, and workplace highlights. Prioritized high-quality visuals and structured storytelling with clear sections for experience, dishes, and contact.",
+  results: "The portfolio successfully communicated Chef Ahmed’s expertise, leading to higher visibility and more professional inquiries for collaborations and private events.",
+  metrics: [
+    { label: "Development Time", value: "4 days" },
+    { label: "Design Goal", value: "Visual storytelling through food imagery" },
+    { label: "Outcome", value: "Increased professional engagement" }
+  ],
+  summary: "An expressive, image-centered portfolio blending storytelling, taste, and professionalism into a single elegant presentation."
+},
+{
+  id: "forbed-ecommerce",
+  title: "Forbed Redesign",
+  shortDescription: "A full redesign and SEO optimization of Forbed’s Shopify store to improve user experience, organic visibility, and conversion performance.",
+  client: "Forbed Company",
+  year: 2024,
+  duration: "3 months",
+  owner: "Forbed",
+  services: ["E-commerce Redesign", "SEO Optimization", "UX Enhancement"],
+  link: "https://forbedagent.com/",
+  tech: ["Shopify", "SEO (on-page)", "UX Architecture", "Performance Optimization"],
+  challenge: "Forbed’s existing Shopify store suffered from low conversion rates, poor SEO visibility, and outdated design that failed to communicate brand trust.",
+  solution: "Rebuilt the site’s structure and information hierarchy, optimized on-page SEO (titles, metadata, internal links), and designed a modern responsive layout with enhanced product presentation and faster page loading times.",
+  results: "The store reached second place in its niche for relevant keywords, saw a notable rise in user retention and engagement, and improved conversion rates across all major product categories.",
+  metrics: [
+    { label: "Development Duration", value: "3 months" },
+    { label: "SEO Ranking", value: "Top 2 in niche" },
+    { label: "Conversion Improvement", value: "Significant increase in engagement" }
+  ],
+  summary: "A data-driven redesign that proved the power of user experience and SEO synergy in e-commerce growth."
+},
+{
+  id: "smart-workshop",
+  title: "Smart Workshop",
+  shortDescription: "An automated system for managing workshop registrations, schedules, and personalized reminders to improve operational efficiency and participant experience.",
+  client: "Qudraat Organization",
+  year: 2025,
+  duration: "1 month",
+  owner: "Qudraat",
+  services: ["Automation System", "Notification Flow", "User Experience Design"],
+  link: null,
+  tech: ["Google Sheets", "Zapier", "Email & SMS Integration"],
+  challenge: "Manual scheduling processes caused confusion, missed sessions, and inconsistent communication with workshop participants.",
+  solution: "Built an automated system integrating Google Sheets with workflow automation tools (Zapier/Make) to manage registrations, generate personalized schedules, and send automatic reminders via email and SMS.",
+  results: "Reduced administrative workload by 60% and improved participant attendance by 40%, ensuring smoother coordination for recurring workshops.",
+  metrics: [
+    { label: "Development Time", value: "1 month" },
+    { label: "Attendance Growth", value: "+40%" },
+    { label: "Admin Efficiency", value: "+60% improvement" }
+  ],
+  summary: "An efficient, human-centered automation solution that made workshop management seamless and reliable."
+},
+{
+  id: "qudraat-chatbot",
+  title: "Qudraat Chatbot",
+  shortDescription: "A prototype chatbot developed to assist Qudraat community members with educational queries and automated responses.",
+  client: "Qudraat Community",
+  year: 2025,
+  duration: "17 days",
+  owner: "Qudraat",
+  services: ["Chatbot Development", "Knowledge Base", "UI/UX Design"],
+  link: null,
+  tech: ["Static JavaScript", "JSON-based Logic", "UI Widget"],
+  challenge: "Qudraat needed a lightweight solution to handle frequently asked questions and basic educational queries without full backend infrastructure.",
+  solution: "Developed a static chatbot that used a structured JSON question–answer database and an intuitive interface for instant user interaction, simulating real chat flow.",
+  results: "Reduced manual support requests significantly, improved information accessibility, and served as the foundation for a more dynamic chatbot system later on.",
+  metrics: [
+    { label: "Development Time", value: "17 days" },
+    { label: "Manual Workload", value: "Reduced support by ~40%" },
+    { label: "Purpose", value: "Test concept for scalable automation" }
+  ],
+  summary: "A practical proof of concept showing how a simple static solution can enhance community support efficiency."
+},
+{
+  id: "qudraat-youth",
+  title: "Qudraat Youth",
+  shortDescription: "A six-month initiative to launch, grow, and manage Qudraat Youth — a digital community focused on engagement and empowerment.",
+  client: "Qudraat",
+  year: 2025,
+  duration: "6 months",
+  owner: "Qudraat",
+  services: ["Community Management", "Digital Strategy", "Engagement Design"],
+  link: null,
+  tech: ["Social Media Campaigns", "Community Tools", "Content Strategy"],
+  challenge: "Building an entirely new youth-oriented digital community from scratch with consistent participation and purpose-driven engagement.",
+  solution: "Developed a clear brand identity, designed engagement programs, challenges, and ambassador initiatives. Managed multi-channel content to keep users inspired and active.",
+  results: "Achieved rapid membership growth and consistent engagement metrics, establishing Qudraat Youth as a thriving digital ecosystem.",
+  metrics: [
+    { label: "Duration", value: "6 months" },
+    { label: "Growth Rate", value: "High, sustained engagement" },
+    { label: "Community Retention", value: "Strong ongoing participation" }
+  ],
+  summary: "A successful case study in digital community building driven by authenticity, purpose, and strategic content."
+},
+{
+  id: "dr-bravo",
+  title: "Dr. Bravo | Medical Website",
+  shortDescription: "A professional website for Dr. Mahmoud Bravo designed to showcase medical expertise and enhance patient trust through clear design and functionality.",
+  client: "Dr. Mahmoud Bravo",
+  year: 2025,
+  duration: "12 days",
+  owner: "Dr. Mahmoud Bravo",
+  services: ["Medical Website", "Patient Experience", "Information Architecture"],
+  link: "https://dr-mahmoudbravo.web.app/",
+  tech: ["Firebase Hosting", "React", "Responsive UX"],
+  challenge: "To design a digital presence that communicates medical professionalism and credibility while remaining simple and user-friendly for patients.",
+  solution: "Created a modern, mobile-optimized site featuring service pages, biography, and a clean appointment/contact form. Focused on accessible layouts, readable typography, and trust-centered visuals.",
+  results: "Improved patient engagement, increased appointment requests, and provided a more credible digital identity for Dr. Bravo’s practice.",
+  metrics: [
+    { label: "Development Time", value: "12 days" },
+    { label: "Primary Goal", value: "Professional online presence" },
+    { label: "Outcome", value: "Improved patient communication" }
+  ],
+  summary: "A clear and credible web experience combining design precision with patient-centered communication."
+},
+{
+  id: "qudraat-shabab",
+  title: "Qudraat Shabab Website",
+  shortDescription: "A web platform with an integrated backend and CMS allowing non-technical users to manage and publish content easily.",
+  client: "Qudraat",
+  year: 2025,
+  duration: "8 days",
+  owner: "Qudraat",
+  services: ["Web App", "Custom CMS", "Community Platform"],
+  link: "https://qudraat-shabab.web.app/",
+  tech: ["React", "Firebase (Auth + Firestore)", "Admin Dashboard"],
+  challenge: "To build a web platform that allows non-technical staff to add, update, and manage website content without coding knowledge.",
+  solution: "Developed a lightweight backend using Firebase Firestore with a React-based admin dashboard for managing content, events, and announcements. Ensured secure access control and clean UI.",
+  results: "Empowered the Qudraat team to independently manage content, reducing developer dependency and accelerating update cycles.",
+  metrics: [
+    { label: "Development Time", value: "8 days" },
+    { label: "CMS Efficiency", value: "Full non-technical usability" },
+    { label: "Impact", value: "Faster content updates and autonomy" }
+  ],
+  summary: "A flexible web app that democratized content management for a growing digital community."
+},
+{
+  id: "next-academy",
+  title: "Next Academy Website",
+  shortDescription: "A complete educational web platform with dashboard, backend, and integrated payment system for course management and enrollment.",
+  client: "Abdulrahman Qandil",
+  year: 2025,
+  duration: "1 month",
+  owner: "Abdulrahman Qandil",
+  services: ["Educational Platform", "Admin Dashboard", "Payment Integration"],
+  link: "https://next-academey.web.app/",
+  tech: ["React", "Firebase", "Payment Gateway", "Admin Dashboard"],
+  challenge: "To design a scalable educational platform that allows course management, student enrollment, and payments within a unified ecosystem.",
+  solution: "Developed an end-to-end solution with an intuitive student interface, admin dashboard for adding/editing courses, and a secure payment integration. Focused on UX consistency and backend reliability.",
+  results: "Simplified course management for admins, improved student registration flow, and created a professional digital identity for the academy.",
+  metrics: [
+    { label: "Development Time", value: "1 month" },
+    { label: "Core Features", value: "Dashboard + Payment System" },
+    { label: "Impact", value: "Increased enrollment inquiries" }
+  ],
+  summary: "A structured and dynamic education platform uniting design, functionality, and scalability."
+},
+{
+  id: "dietty-store",
+  title: "Dietty Store | Shopify Redesign & SEO",
+  shortDescription: "A complete redesign and SEO optimization project that transformed Dietty Store’s performance through UX, content strategy, and growth marketing.",
+  client: "Dr. Samar",
+  year: 2025,
+  duration: "33 days",
+  owner: "Dr. Samar",
+  services: ["Shopify Redesign", "SEO", "Performance Marketing", "Content Strategy"],
+  link: "https://diettystore.com/",
+  tech: ["Shopify", "SEO", "Analytics", "Marketing Funnels"],
+  challenge: "The store suffered from low average order value, high acquisition costs, and low delivery success rates, limiting profitability.",
+  solution: "Executed a full redesign focusing on conversion optimization, improved visuals, and customer flow. Enhanced content and product imagery, restructured the checkout funnel, and applied tailored marketing strategies for different customer segments.",
+  results: "Raised the average order value from 437 EGP to 970 EGP, increased average items per order from 1.4 to 2.1, reduced cost per order from 97 EGP to 66 EGP, and improved delivery success rate to 83%.",
+  metrics: [
+    { label: "Average Order Value", value: "437 EGP → 970 EGP" },
+    { label: "Items per Order", value: "1.4 → 2.1" },
+    { label: "Cost per Order", value: "97 EGP → 66 EGP" },
+    { label: "Delivery Success", value: "83%" }
+  ],
+  summary: "A strategic Shopify transformation driven by design and data — turning insights into measurable business growth."
+}

@@ -105,7 +105,7 @@ export default function SpeakingSection() {
               Book a Workshop
             </a>
             <a 
-              href="/speaking" 
+              href="/lectures" 
               className="cta-secondary"
               aria-label="View all speaking sessions"
             >
