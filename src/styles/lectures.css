@@ -370,7 +370,9 @@ html {
   }
 }
 
-  /* Slightly taller rows on large screens */
+@media (min-width: 1440px) {
   .gallery-row,
-  .gallery-item { height: 440px; }
+  .gallery-item { 
+    height: 440px; 
+  }
 }
