@@ -13,35 +13,35 @@ export default function TestimonialsSection() {
 
   const testimonials = [
     {
-      id: "john-harris",
-      name: "John Harris",
-      role: "Marketing Director",
-      quote: "Duncan truly understood my vision and turned it into impactful designs. The results went beyond my expectations!",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=150&auto=format&fit=crop",
+      id: "Mahmoud-Sobhy Abd",
+      name: "Mahmoud Sobhy Abd ElFattah",
+      role: "CTO at TechFlow Solutions",
+      quote: "Thank you, Mekky! Honestly, I learned so much from your session. It completely changed how I see AI — in a way I never imagined before. You really opened my mind. Wishing you all the success, always! ❤️",
+      avatar: "images/testimonials/mahmoud.jpg",
       rating: 5
     },
     {
-      id: "michael-lee",
-      name: "Michael Lee", 
-      role: "Product Manager",
-      quote: "He took the time to understand our goals and delivered a design that resonated perfectly with our audience.",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&auto=format&fit=crop",
+      id: "MuhammedAladawy",
+      name: "Muhammed Aladawy", 
+      role: "Copywriter & Trainer",
+      quote: "“An amazing session! Even though I was exhausted from work, I had to join just to see this brilliance. You truly lit up our minds, my friend! 💚💚”",
+      avatar: "images/testimonials/MuhammedAladawy.jpg",
       rating: 5
     },
     {
-      id: "sarah-johnson",
-      name: "Sarah Johnson",
-      role: "CEO", 
-      quote: "His design skills are unmatched. He transformed my ideas into a high-performing, visually striking website.",
-      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?q=80&w=150&auto=format&fit=crop",
+      id: "Muhammed-Saeed",
+      name: "Muhammed Saeed",
+      role: "Media Buyer", 
+      quote: "“It was a world-class session! For the first time, I learned about something called a ‘Framework’ — I even tried it in my own work, and it gave me incredible results! ❤️🔥”",
+      avatar: "/images/testimonials/muhammedsaeed.jpg",
       rating: 5
     },
     {
-      id: "laura-bennett",
-      name: "Laura Bennett",
-      role: "Small Business Owner",
-      quote: "As a small business owner, I appreciated how stress-free Duncan made the process.",
-      avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=150&auto=format&fit=crop", 
+      id: "Samia",
+      name: "Samia Eltayib Arafa",
+      role: "Training & Development Director",
+      quote: "“I really enjoyed the session! Every single thing you shared was valuable and useful. Thank you so much for such an inspiring experience. 🤍”",
+      avatar: "/images/testimonials/samia.jpg", 
       rating: 5
     }
   ];
@@ -94,9 +94,9 @@ export default function TestimonialsSection() {
     return () => {
       ScrollTrigger.getAll().forEach((t) => t.kill());
     };
-  }, []);
+  }, [stats]);
 
-  const renderStars = (rating) => {
+  const renderStars = () => {
     return Array.from({ length: 5 }, (_, i) => (
       <span key={i} className="star">★</span>
     ));

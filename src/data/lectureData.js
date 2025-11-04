@@ -38,7 +38,7 @@ export const lecturesData = [
     speaker: {
       name: "Muhammed Mekky",
       role: "Marketing Automation Strategist & Performance Trainer",
-      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently.",
+      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently. He brings a unique mix of creative strategy, technical precision, and human-centered training—bridging the gap between marketing, technology, and people. Beyond building systems, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies.",
       image: "/images/mekky_about.png",
       link: "https://linkedin.com/in/muhammedmekky"
     },
@@ -84,7 +84,7 @@ export const lecturesData = [
     speaker: {
       name: "Muhammed Mekky",
       role: "Marketing Automation Strategist & Performance Trainer",
-      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently.",
+      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently. He brings a unique mix of creative strategy, technical precision, and human-centered training—bridging the gap between marketing, technology, and people. Beyond building systems, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies.",
       image: "/images/mekky_about.png",
       link: "https://linkedin.com/in/muhammedmekky"
     },
@@ -130,12 +130,153 @@ export const lecturesData = [
     speaker: {
       name: "Muhammed Mekky",
       role: "Marketing Automation Strategist & Performance Trainer",
-      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently.",
+      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently. He brings a unique mix of creative strategy, technical precision, and human-centered training—bridging the gap between marketing, technology, and people. Beyond building systems, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies.",
       image: "/images/mekky_about.png",
       link: "https://linkedin.com/in/muhammedmekky"
     },
     summary: "A friendly entry-point into prompt engineering and model selection — ideal for anyone wanting to use LLMs effectively and safely in real tasks.",
     tags: ["Prompt Engineering", "LLM Basics", "Model Selection", "AI Fundamentals", "Beginner"]
+  },
+  {
+    id: "ai-automation-kickstart",
+    title: "Automate Your Life Workshop",
+    subtitle: "Practical guide to implement no-code automation for business workflows.",
+    overview: "A practical workshop introducing youth to no-code automation. Use tools like Make.com to streamline daily tasks, connect apps, and build powerful workflows without code. Perfect for business owners, managers, and professionals who want to streamline their operations and increase efficiency.",
+    duration: "120 minutes",
+    year: 2025,
+    level: "All Levels",
+    language: "Arabic",
+    category: "AI & Automation",
+    image: "/images/lectures/automation.png",
+    keyElements: [
+      "Process analysis before automation and operational workflow mapping.",
+      "Hands-on Make (Integromat) & Zapier examples for real-world scenarios.",
+      "Real world use cases: HR, Marketing, Sales automation workflows.",
+      "ROI calculation and success metrics for automation projects.",
+      "Common pitfalls and how to avoid them in automation implementation."
+    ],
+    examples: [
+      {
+        title: "Marketing Workflow Automation",
+        description: "Complete lead capture to CRM integration using Zapier and Make.com."
+      },
+      {
+        title: "HR Process Automation",
+        description: "Automated employee onboarding and document management workflows."
+      }
+    ],
+    resources: [
+      { label: "Workshop Materials", link: "https://drive.google.com/drive/u/1/folders/1x_A3YIIvrgJfCLMc3ex1tW1vVUB5uYua" },
+      { label: "Automation Templates", link: "#" }
+    ],
+    video: {
+      url: "https://drive.google.com/file/d/1SWrZsQLnVmMJAMziddPzlNlTBXXLIAsw/view",
+      type: "Google Drive"
+    },
+    speaker: {
+      name: "Muhammed Mekky",
+      role: "Marketing Automation Strategist & Performance Trainer",
+      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently. He brings a unique mix of creative strategy, technical precision, and human-centered training—bridging the gap between marketing, technology, and people. Beyond building systems, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies.",
+      image: "/images/mekky_about.png",
+      link: "https://linkedin.com/in/muhammedmekky"
+    },
+    summary: "A hands-on workshop that transforms manual processes into automated workflows — perfect for anyone wanting to save time and increase productivity through no-code automation.",
+    tags: ["Automation", "No-Code", "Zapier", "Make.com", "Workflow"]
+  },
+  {
+    id: "notion-productivity",
+    title: "Introduction to Notion",
+    subtitle: "Transform your workspace into a productivity powerhouse.",
+    overview: "Unlock productivity with Notion. Learn pages, databases, and building a personal dashboard. Explore using ChatGPT to generate structured content for your workspace. Master Notion from basics to advanced features in this comprehensive session.",
+    duration: "90 minutes",
+    year: 2025,
+    level: "Beginner / Intermediate",
+    language: "Arabic",
+    category: "Productivity",
+    image: "/images/lectures/notion.png",
+    keyElements: [
+      "Notion fundamentals and best practices for workspace organization.",
+      "Database creation and management for project tracking.",
+      "Template design and automation for recurring tasks.",
+      "Integration with other tools and ChatGPT for content generation.",
+      "Personal productivity systems and workflow optimization."
+    ],
+    examples: [
+      {
+        title: "Project Management Dashboard",
+        description: "Complete project tracking system with databases and templates."
+      },
+      {
+        title: "Content Planning System",
+        description: "Integrated content calendar with ChatGPT-generated ideas."
+      }
+    ],
+    resources: [
+      { label: "Notion Templates", link: "https://drive.google.com/drive/u/1/folders/1x_A3YIIvrgJfCLMc3ex1tW1vVUB5uYua" },
+      { label: "Setup Guide", link: "#" }
+    ],
+    video: {
+      url: "https://drive.google.com/file/d/1o1dFPpcKdOFfTvwXtkmBLINrgch0fBl2/view",
+      type: "Google Drive"
+    },
+    speaker: {
+      name: "Muhammed Mekky",
+      role: "Marketing Automation Strategist & Performance Trainer",
+      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently. He brings a unique mix of creative strategy, technical precision, and human-centered training—bridging the gap between marketing, technology, and people. Beyond building systems, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies.",
+      image: "/images/mekky_about.png",
+      link: "https://linkedin.com/in/muhammedmekky"
+    },
+    summary: "A comprehensive Notion mastery session that turns your workspace into a productivity powerhouse — ideal for professionals and students wanting to centralize their systems.",
+    tags: ["Notion", "Productivity", "Organization", "Templates", "Workspace"]
+  },
+  {
+    id: "portfolio-that-converts",
+    title: "Portfolio That Converts",
+    subtitle: "Build a standout professional portfolio that attracts clients and opportunities.",
+    overview: "A comprehensive guide to creating a standout professional portfolio: selecting your best work, structuring projects effectively, visual layout principles, and writing compelling case studies that attract clients and convert visitors into opportunities.",
+    duration: "100 minutes",
+    year: 2025,
+    level: "All Levels",
+    language: "English / Arabic",
+    category: "Professional Development",
+    image: "/images/lectures/Portfolio.png",
+    keyElements: [
+      "Portfolio strategy and target audience identification.",
+      "Project selection criteria and work curation best practices.",
+      "Visual design principles and layout optimization.",
+      "Case study writing that tells compelling stories.",
+      "Conversion optimization and call-to-action placement."
+    ],
+    examples: [
+      {
+        title: "Before & After Portfolio Review",
+        description: "Real portfolio transformations showing conversion improvements."
+      },
+      {
+        title: "Case Study Template",
+        description: "Step-by-step template for writing compelling project case studies."
+      }
+    ],
+    resources: [
+      { label: "Tools", link: "https://catkin-honeydew-363.notion.site/207ae9d8a0a98037aaecf46503b9bd0c?v=207ae9d8a0a980fd910d000c490c9dd2&pvs=74" },
+      { label: "Portfolio Templates", link: "https://www.figma.com/community/search?model_type=hub_files&q=portfolio%20template" },
+      { label: "Design Inspiration", link: "https://www.behance.net/search/projects?search=portfolio" },
+      { label: "Custom GPT for Portfolio Building", link: "https://chatgpt.com/g/g-687a8f4ed8688191bb7c6895dad24613-mstshr-lbwrtfwlyw-ltswyqy" },
+      { label: "Presentation Deck", link: "https://www.canva.com/design/DAGs7y_Qe_s/uGIY7DT8_vtFfle5Ly7KHA/view" }
+    ],
+    video: {
+      url: "https://drive.google.com/file/d/1Wy1evc9IbgGd7BTylQtERVciCn-VKgxB/view",
+      type: "Google Drive"
+    },
+    speaker: {
+      name: "Muhammed Mekky",
+      role: "Marketing Automation Strategist & Performance Trainer",
+      bio: "Muhammed Mekky is a marketing automation strategist and performance trainer who helps businesses and individuals build smarter, scalable systems. With years of experience across marketing, automation, and AI-driven workflows, Mekky has empowered startups and teams to grow efficiently and work intelligently. He brings a unique mix of creative strategy, technical precision, and human-centered training—bridging the gap between marketing, technology, and people. Beyond building systems, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies.",
+      image: "/images/mekky_about.png",
+      link: "https://linkedin.com/in/muhammedmekky"
+    },
+    summary: "A practical guide to building portfolios that convert visitors into clients — essential for freelancers, designers, and professionals showcasing their work.",
+    tags: ["Portfolio", "Professional Development", "Case Studies", "Conversion", "Design"]
   }
 ];
 
@@ -143,7 +284,9 @@ export const categories = [
   "All",
   "AI & Marketing", 
   "AI & Automation",
-  "AI Fundamentals"
+  "AI Fundamentals",
+  "Productivity",
+  "Professional Development"
 ];
 
 export const levels = [

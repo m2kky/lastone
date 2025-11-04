@@ -80,24 +80,24 @@ export default function SpeakingSection() {
 
           <div className="speaking-stats">
             <div className="stat-item">
-              <span className="stat-value">+7</span>
+              <span className="stat-value">+6</span>
               <span className="stat-label">Years Experience</span>
             </div>
             <div className="stat-divider" />
             <div className="stat-item">
-              <span className="stat-value">50+</span>
+              <span className="stat-value">15+</span>
               <span className="stat-label">Speaking Events</span>
             </div>
             <div className="stat-divider" />
             <div className="stat-item">
-              <span className="stat-value">3,000+</span>
+              <span className="stat-value">1,800+</span>
               <span className="stat-label">Professionals Trained</span>
             </div>
-          </div>
+          </div>  
 
           <div className="speaking-ctas">
             <a 
-              href="/book-workshop" 
+              href="/booking" 
               className="cta-primary" 
               onClick={handleBookClick}
               aria-label="Book a workshop with Muhammed Mekky"

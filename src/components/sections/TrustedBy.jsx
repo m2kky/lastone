@@ -14,6 +14,8 @@ export default function TrustedBy() {
     { id: 7, name: 'Scarpe', logo: '/images/trusted/scarpe.svg' },
     { id: 8, name: 'Sleep Zone', logo: '/images/trusted/sleepzone.svg' },
     { id: 9, name: 'Teleperformance', logo: '/images/trusted/teleperformance.svg' },
+    { id: 10, name: 'ministy', logo: '/images/trusted/ministy.svg' },
+    { id: 11, name: 'rowaad', logo: '/images/trusted/rowaad.svg' },
   ]
 
   useEffect(() => {

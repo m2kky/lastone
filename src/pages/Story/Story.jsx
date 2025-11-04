@@ -263,14 +263,14 @@ export default function Story() {
           <p className="story-hero-subtitle">From curiosity to creation</p>
         </div>
         <div className="story-hero-image">
-          <img src="/images/story/hero.jpg" alt="Muhammed Mekky" />
+          <img src="/images/hero.png" alt="Muhammed Mekky" />
         </div>
       </motion.section>
 
       <section ref={storyContentRef} className="story-content">
         <div className="story-parallax-container">
           <div className="story-fixed-image">
-            <img src="/images/story/main-story.jpg" alt="Mekky's Journey" />
+            <img src="/images/story.png" alt="Mekky's Journey" />
           </div>
           
           <div className="story-text-sections">

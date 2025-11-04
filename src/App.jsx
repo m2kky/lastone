@@ -20,6 +20,9 @@ import LectureDetail from './pages/LectureDetail/LectureDetail.jsx'
 import Lectures from './pages/lectures/Lectures.jsx'
 import Blog from './pages/Blog/Blog.jsx'
 import BlogDetail from './pages/BlogDetail/BlogDetail.jsx'
+import BookWorkshop from './pages/BookWorkshop/BookWorkshop.jsx'
+import Dashboard from './pages/Dashboard/Dashboard.jsx'
+
 import NotFound from './pages/NotFound/NotFound.jsx'
 
 function App() {
@@ -37,6 +40,9 @@ function App() {
         <Route path="/lectures/:id" element={<LectureDetail />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:slug" element={<BlogDetail />} />
+        <Route path="/booking" element={<BookWorkshop />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

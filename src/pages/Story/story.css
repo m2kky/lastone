@@ -674,7 +674,7 @@
 
 .keep-connected-text {
   font-size: 1rem;
-  color: #000;
+  color: rgba(239, 238, 234, 0.8);
   margin-bottom: 2.5rem;
   line-height: 1.6;
   font-weight: 400;

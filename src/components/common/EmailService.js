@@ -18,7 +18,7 @@ export const sendEmail = async (formData) => {
       phone: formData.phone || 'غير محدد',
       subject: formData.subject,
       message: formData.message,
-      to_name: 'محمد مكي'
+      to_name: 'Muhammed Mekky'
     };
 
     const response = await emailjs.send(
@@ -46,7 +46,7 @@ export const sendNewsletterSubscription = async (email) => {
   try {
     const templateParams = {
       subscriber_email: email,
-      to_name: 'محمد مكي'
+      to_name: 'Muhammed Mekky'
     };
 
     const response = await emailjs.send(

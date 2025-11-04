@@ -1,0 +1,612 @@
+:root {
+  /* Primary Colors */
+  --accent-color: #eb5e28;
+  --accent-hover: #d54e20;
+  --accent-light: rgba(235, 94, 40, 0.1);
+  --accent-lighter: rgba(235, 94, 40, 0.05);
+  
+  /* Text Colors */
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #9ca3af;
+  --text-white: #ffffff;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #f1f3f5;
+  
+  /* Border Colors */
+  --border-color: #e5e7eb;
+  --border-hover: #d1d5db;
+  --border-focus: var(--accent-color);
+  
+  /* Error Colors */
+  --error-color: #dc2626;
+  --error-bg: #fef2f2;
+  --error-border: #fecaca;
+  --error-light: rgba(220, 38, 38, 0.1);
+  
+  /* Success Colors */
+  --success-color: #10b981;
+  --success-bg: #f0fdf4;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-focus: 0 0 0 3px rgba(235, 94, 40, 0.1);
+  
+  /* Border Radius */
+  --border-radius-sm: 6px;
+  --border-radius: 12px;
+  --border-radius-lg: 16px;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  min-height: 100vh;
+}
+
+.progressBar {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-color), var(--accent-hover));
+  transition: width var(--transition-slow);
+  border-radius: var(--border-radius-sm);
+}
+
+.progressText {
+  position: absolute;
+  top: -2rem;
+  right: 0;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.btnPrimary,
+.btnSecondary {
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btnPrimary {
+  background: var(--accent-color);
+  color: var(--text-white);
+  margin-left: auto;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btnSecondary {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--border-color);
+}
+
+.btnSecondary:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background: var(--accent-lighter);
+}
+
+.error {
+  background: var(--error-bg);
+  border: 1px solid var(--error-border);
+  color: var(--error-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.errorClose {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--error-color);
+  padding: 0;
+  margin-left: 1rem;
+  transition: opacity var(--transition-fast);
+}
+
+.errorClose:hover {
+  opacity: 0.7;
+}
+
+.successCard {
+  background: var(--bg-primary);
+  border-radius: var(--border-radius-lg);
+  padding: 3rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  margin-top: 4rem;
+  border: 1px solid var(--border-color);
+}
+
+.successIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.successCard h2 {
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.successCard p {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}
+
+/* Form Styles */
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.legend {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  display: block;
+  width: 100%;
+}
+
+.radioGroup {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.radioTile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
+.radioTile > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 1;
+}
+
+.radioTitle {
+  font-weight: 600;
+  color: var(--text-primary) !important;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.radioDescription {
+  font-size: 0.875rem;
+  color: var(--text-secondary) !important;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Ensure text is always visible in radio tiles - override any inherited colors */
+.radioTile > div {
+  color: var(--text-primary) !important;
+}
+
+.radioTile > div > span {
+  color: var(--text-primary) !important;
+}
+
+.radioTile:hover {
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-sm);
+  background: var(--bg-primary);
+  transform: translateY(-1px);
+}
+
+.radioTile input[type="radio"] {
+  margin: 0;
+  accent-color: var(--accent-color);
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.radioTile input[type="radio"]:checked {
+  border-color: var(--accent-color);
+}
+
+/* When radio is checked, style the parent tile */
+.radioTile:has(input[type="radio"]:checked) {
+  border-color: var(--accent-color);
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-md);
+  border-width: 2px;
+}
+
+.radioTile:has(input[type="radio"]:checked) .radioTitle {
+  color: var(--accent-color) !important;
+  font-weight: 700;
+}
+
+.radioTile:has(input[type="radio"]:checked) .radioDescription {
+  color: var(--text-secondary) !important;
+  font-weight: 400;
+}
+
+/* Fallback for browsers that don't support :has() */
+.radioTile.selected {
+  border-color: var(--accent-color);
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-md);
+  border-width: 2px;
+}
+
+.radioTile.selected .radioTitle {
+  color: var(--accent-color) !important;
+  font-weight: 700;
+}
+
+.radioTile.selected .radioDescription {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+.radioIcon {
+  font-size: 1.25rem;
+}
+
+.alternativeLinks {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-color);
+  text-align: center;
+}
+
+.alternativeLinks p {
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.alternativeLinks a {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.alternativeLinks a:hover {
+  text-decoration: underline;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.input,
+.textarea {
+  padding: 0.75rem;
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: all var(--transition-base);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-focus);
+  background: var(--bg-primary);
+}
+
+.input:hover,
+.textarea:hover {
+  border-color: var(--border-hover);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.helpText {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  font-style: italic;
+}
+
+.errorText {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+/* Summary Styles */
+.summaryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.summaryContent h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summaryItem {
+  padding: 1rem;
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: all var(--transition-base);
+}
+
+.summaryItem:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-sm);
+}
+
+.summaryLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 0.875rem;
+}
+
+.editBtn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.editBtn:hover {
+  background: var(--accent-light);
+}
+
+.summaryValue {
+  color: var(--text-secondary);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+/* File Upload Styles */
+.fileUpload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dropZone {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  background: var(--bg-secondary);
+}
+
+.dropZone:hover,
+.dragActive {
+  border-color: var(--accent-color);
+  background: var(--accent-lighter);
+  border-style: solid;
+}
+
+.fileInput {
+  display: none;
+}
+
+.fileLabel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.fileLabel span {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.fileLabel small {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.fileList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.fileItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-base);
+}
+
+.fileItem:hover {
+  border-color: var(--border-hover);
+  background: var(--bg-secondary);
+}
+
+.fileName {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removeFile {
+  background: none;
+  border: none;
+  color: var(--error-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-base);
+}
+
+.removeFile:hover {
+  background: var(--error-light);
+  color: var(--error-color);
+  transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem 0.5rem;
+  }
+  
+  .radioGroup {
+    grid-template-columns: 1fr;
+  }
+  
+  .navigation {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btnPrimary,
+  .btnSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .progressText {
+    position: static;
+    text-align: center;
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .radioTile {
+    padding: 0.75rem;
+    font-size: 0.875rem;
+  }
+  
+  .legend {
+    font-size: 1rem;
+  }
+}

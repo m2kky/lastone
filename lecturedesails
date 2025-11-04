@@ -132,3 +132,9 @@
   },
   summary: "A friendly entry-point into prompt engineering and model selection — ideal for anyone wanting to use LLMs effectively and safely in real tasks."
 }
+ms, Mekky teaches them. Through his workshops and lectures, he shares practical frameworks for automating marketing, scaling performance, and integrating AI into real-world workflows. From startups to corporate teams, his sessions turn complex concepts into hands-on, actionable strategies.",
+    image: "/images/mekky.png",
+    link: "https://linkedin.com/in/muhammedmekky"
+  },
+  summary: "An introductory workshop that teaches participants how to use Notion for personal and team productivity, with ChatGPT integration for enhanced content creation."
+}
